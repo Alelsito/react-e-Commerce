@@ -1,0 +1,109 @@
+// _styles.scss
+@import '../styles/styles';
+
+.nav {
+    max-width: 100%;
+    min-height: 80px;
+    max-height: 80px;
+    padding: 0px 50px 0px 50px;
+    position: sticky;
+    top: 0;
+    display: flex;
+
+    &__first-side {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        gap: 36px;
+
+        &__logo {
+            width: 100px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            &__image {
+                width: 30px;
+                height: 30px;
+            }
+
+            &__text-logo {
+                font-size: $Logo;
+                font-weight: 400;
+                color: $Dark;
+            }
+        }
+
+        &__categories {
+            display: flex;
+            gap: 15px;
+
+            &__text-category {
+            color: $Type-High-Emphasis;
+            font-size: $Body;
+            }
+        }
+    }
+
+    .nav-second-side {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 30px;
+
+        &__searcher {
+            min-width: 365px;
+            min-height: 45px;
+            max-width: 365px;
+            max-height: 45px;
+            background-color: rgba(241, 241, 241, 1);
+            position: relative;
+
+            &__input {
+                all: unset;
+                width: 310px;
+                height: 40px;
+                position: absolute;
+                top: 2px;
+                left: 40px;
+                border-style: none;
+                font-size: $Label-large;
+                color: $Type-Low-Emphasis;
+            }
+
+            &__button-search {
+                all: unset;
+                width: 25px;
+                height: 25px;
+                position: absolute;
+                left: 10px;
+                top: 9px;
+
+                .fa-magnifying-glass {
+                    color: $Type-High-Emphasis;
+                }
+            }
+        }
+
+        &__icons {
+            width: 70px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            .bi-person {
+                font-size: 27.7px;
+                color: $Primary;
+            }
+            .bi-bag {
+                padding-bottom: 1px;
+                font-size: 23px;
+                color: $Primary;
+            }
+        }
+    }
+
+}

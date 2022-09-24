@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
+
+$myFont: 'Inter', sans-serif;
+
+html {
+    font-family: $myFont !important; 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-width: 100vh;
+    min-height: 100vh;
+    font-family: $myFont !important; 
+
+}
+
+#root {
+    margin: 0;
+    padding: 0;
+    min-width: 100vh;
+    min-height: 100vh;
+}

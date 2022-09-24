@@ -48,6 +48,10 @@ from consuming an API from a provided generic backend.
 - CSS
 - [React](https://reactjs.org/) - JS library
 - [Vite](https://vitejs.dev/) - Build frontend tool (in this case for React)
+<!-- - Bootstrap -->
+- Bootstrap icons
+- [FontAwesome](https://fontawesome.com/) - For icons
+
 
 ### Skills
 
