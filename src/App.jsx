@@ -1,6 +1,6 @@
 // Layouts
 import Navbar from './layouts/Navbar'
-// import Footer from './layouts/Footer'
+import Footer from './layouts/Footer'
 
 // Pages
 // import Home from './pages/Home'
@@ -13,7 +13,7 @@ function App () {
       {/* */}
       {/* <Home /> */}
       <ProductDetail />
-      {/* <Footer /> */}
+      <Footer />
     </>
   )
 }

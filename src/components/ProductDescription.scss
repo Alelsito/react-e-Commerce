@@ -22,8 +22,8 @@
 
     &__product {
         @extend %display-flex;
-        // min-height: 580px;
-        // max-height: 580px;
+        min-height: 500px;
+        max-height: 500px;
         gap: 65px;
 
         &__image {

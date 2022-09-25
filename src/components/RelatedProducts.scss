@@ -1,0 +1,44 @@
+// _styles.scss
+@import '../styles/styles';
+
+.related {
+    margin: 0px 15% 30px;
+    @extend %display-flex-flex-direction-column;
+
+    &__bar {
+        min-height: 65px;
+        @extend %display-flex-align-items-center;
+
+        &__background {
+            min-height: 50px;
+            min-width: 100%;
+            background-color: $Grey;
+            border-radius: 12px;
+            @extend %display-flex-align-items-center;
+
+            &__component {
+                margin-left: 20px;
+                min-height: 30px;
+                min-width: 170px;
+                background-color: $Primary;
+                border-radius: 8px;
+                @extend %display-flex-align-items-center;
+                justify-content: center;
+
+                &__text {
+                    font-size: 16px;
+                    font-weight: 400;
+                    color: $Bright;
+                }
+            }
+        }
+    }
+
+    &__products {
+        height: auto;
+        @extend %display-flex;
+        gap: 10px 42px;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+}
