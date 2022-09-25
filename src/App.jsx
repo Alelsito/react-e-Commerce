@@ -1,9 +1,20 @@
+// Layouts
+import Navbar from './layouts/Navbar'
+// import Footer from './layouts/Footer'
+
 // Pages
-import Home from './pages/Home'
+// import Home from './pages/Home'
+import ProductDetail from './pages/ProductDetail'
 
 function App () {
   return (
-    <Home />
+    <>
+      <Navbar />
+      {/* */}
+      {/* <Home /> */}
+      <ProductDetail />
+      {/* <Footer /> */}
+    </>
   )
 }
 

@@ -6,7 +6,6 @@ import './About.scss'
 const About = () => {
   return (
     <section className='base'>
-      <img src='' alt='' />
       <div className='base__about'>
         <div className='base__about__text'>
           <span className='base__about__text--title'>About</span>
