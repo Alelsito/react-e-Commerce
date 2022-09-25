@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Logo
-import logo from '../assets/Bugis-Logo.png'
+import logo from '@/assets/Bugis-Logo.png'
 
 // Style
 import './Navbar.scss'
@@ -9,7 +9,6 @@ import './Navbar.scss'
 const Navbar = () => {
   return (
     <nav className='nav'>
-      {/* First Side */}
       <div className='nav__first-side'>
         <div className='nav__first-side__logo'>
           <img src={logo} alt='logo' className='nav__first-side__logo__image' />
@@ -22,7 +21,6 @@ const Navbar = () => {
           <span className='nav__first-side__categories__text-category'> Opcion </span>
         </div>
       </div>
-      {/* Second Side */}
       <div className='nav-second-side'>
         <form className='nav-second-side__searcher'>
           <input type='text' placeholder='Search products...' className='nav-second-side__searcher__input' />

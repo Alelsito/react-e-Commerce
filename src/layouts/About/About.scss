@@ -1,5 +1,5 @@
 // _styles.scss
-@import '../styles/styles';
+@import '@/styles/styles';
 
 .base {
     margin: 0px 50px 20px;
@@ -7,7 +7,7 @@
     max-height: 330px;
     border-radius: 25px;
     background-color: $Primary;
-    background-image: url('../assets/About-image.png');
+    background-image: url('@/assets/About-image.png');
     background-size: cover;
     @extend %display-flex;
     justify-content: flex-end;

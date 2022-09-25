@@ -4,7 +4,7 @@ import React from 'react'
 import './Products.scss'
 
 // Components
-import Product from './Product'
+import Product from '../Product'
 
 const Products = () => {
   return (
