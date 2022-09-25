@@ -1,0 +1,96 @@
+// _styles.scss
+@import '../styles/styles';
+
+.footer {
+    max-width: 100%;
+    min-height: 220px;
+    max-height: 220px;
+    padding-left: 100px;
+    padding-right: 100px;
+    background-color: $Primary;
+    display: flex;
+    align-items: center;
+
+    &__information {
+        width: 60%;
+        display: flex;
+        gap: 70px;
+
+        &--main {
+            font-size: $Label-large;
+            font-weight: 500;
+            color: $Bright;
+        }
+
+        &--content {
+            font-size: $Label-large;
+            font-weight: 500;
+            color: $Light-Text;
+        }
+
+        &__policy {
+            width: 155px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        &__about {
+            width: 155px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        &__categories {
+            width: 155px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        &__brands {
+            width: 155px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+
+    &__right {
+        width: 40%;
+        display: flex;
+        justify-content: end;
+
+        &__container {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            
+            &__location {
+                display: flex;
+                justify-content: end;
+                align-items: center;
+                gap: 5px;
+
+                .bi-geo-alt {
+                    font-size: 20px;
+                    color: $Bright;
+                }
+
+                &__text {
+                    font-size: $Label-large;
+                    color: $Bright;
+                }
+            }
+
+            &__bugis-rights {
+                &__text {
+                    font-size: $Label-large;
+                    color: $Light-Text;
+                }
+            }
+
+        }
+    }
+}

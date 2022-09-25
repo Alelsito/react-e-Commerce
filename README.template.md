@@ -46,11 +46,13 @@ from consuming an API from a provided generic backend.
 - HTML5 MARKUP (check)
 - HTML
 - JS
-- CSS
+- SASS (SCSS version)
+- BEM Methodology
 - [React](https://reactjs.org/) - JS library
 - [Vite](https://vitejs.dev/) - Build frontend tool (in this case for React)
 <!-- - Bootstrap -->
 - Bootstrap icons
+- Google fonts
 - [FontAwesome](https://fontawesome.com/) - For icons
 
 
@@ -69,6 +71,8 @@ from consuming an API from a provided generic backend.
 - [NodeJS](https://nodejs.org/en/)
 - [npm](https://www.npmjs.com/)
 - [StandardJs](https://standardjs.com/) - as linter
+
+- 
 
 - Handling forms and events
 

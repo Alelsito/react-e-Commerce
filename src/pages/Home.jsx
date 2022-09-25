@@ -6,6 +6,7 @@ import About from '../layouts/About'
 
 // Components
 import Products from '../components/Products'
+import Footer from '../layouts/Footer'
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Navbar />
       <About />
       <Products />
+      <Footer />
     </>
   )
 }
