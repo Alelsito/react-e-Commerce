@@ -43,6 +43,7 @@ from consuming an API from a provided generic backend.
 
 ### Built with
 
+- HTML5 MARKUP (check)
 - HTML
 - JS
 - CSS
