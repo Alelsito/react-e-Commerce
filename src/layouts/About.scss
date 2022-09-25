@@ -2,35 +2,30 @@
 @import '../styles/styles';
 
 .base {
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-bottom: 20px;
+    margin: 0px 50px 20px;
     min-height: 330px;
     max-height: 330px;
-    background-color: $Primary;
     border-radius: 25px;
+    background-color: $Primary;
     background-image: url('../assets/About-image.png');
     background-size: cover;
-    display: flex;
+    @extend %display-flex;
     justify-content: flex-end;
     box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
 
     &__about {
-        display: flex;
-        flex-direction: column;
+        @extend %display-flex-flex-direction-column ;
         min-width: 57%;
         max-width: 57%;
-        height: 200px;
+        min-height: 200px;
+        max-height: 200px;
         margin-top: 35px;
         border-radius: 25px 0px 0px 25px;
         background-color: $Tranparent;
 
         &__text {
-            display: flex;
-            flex-direction: column;
-            // height: 100px;
-            margin-top: 45px;
-            margin-left: 55px;
+            @extend %display-flex-flex-direction-column ;
+            margin: 45px 0px 0px 55px;
 
             &--title {
                 font-size: $Display-Large;

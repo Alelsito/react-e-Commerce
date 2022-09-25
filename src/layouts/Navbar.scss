@@ -7,29 +7,26 @@
     z-index: 1;
     max-width: 100%;
     min-height: 80px;
-    max-height: 80px;
     padding: 0px 50px 0px 50px;
     margin-bottom: 30px;
-    display: flex;
+    @extend %display-flex;
     background-color: $Bright;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 
     &__first-side {
-        width: 50%;
-        display: flex;
-        align-items: center;
+        min-width: 50%;
+        @extend %display-flex-align-items-center;
         gap: 36px;
 
         &__logo {
-            width: 100px;
-            height: 30px;
-            display: flex;
-            align-items: center;
+            width: auto;
+            min-height: 30px;
+            @extend %display-flex-align-items-center;
             gap: 5px;
 
             &__image {
-                width: 30px;
-                height: 30px;
+                width: auto;
+                max-height: 30px;
             }
 
             &__text-logo {
@@ -40,7 +37,7 @@
         }
 
         &__categories {
-            display: flex;
+            @extend %display-flex;
             gap: 15px;
 
             &__text-category {
@@ -52,27 +49,24 @@
     }
 
     .nav-second-side {
-        width: 50%;
-        display: flex;
-        align-items: center;
+        min-width: 50%;
+        @extend %display-flex-align-items-center;
         justify-content: flex-end;
         gap: 30px;
 
         &__searcher {
+            position: relative;
             min-width: 365px;
             min-height: 45px;
-            max-width: 365px;
-            max-height: 45px;
             background-color: rgba(241, 241, 241, 1);
-            position: relative;
 
             &__input {
                 all: unset;
-                width: 310px;
-                height: 40px;
                 position: absolute;
                 top: 2px;
                 left: 40px;
+                min-width: 310px;
+                min-height: 40px;
                 border-style: none;
                 font-size: $Label-large;
                 color: $Type-Low-Emphasis;
@@ -80,11 +74,11 @@
 
             &__button-search {
                 all: unset;
-                width: 25px;
-                height: 25px;
                 position: absolute;
                 left: 10px;
                 top: 9px;
+                min-width: 25px;
+                min-height: 25px;
 
                 .fa-magnifying-glass {
                     color: $Type-High-Emphasis;
@@ -93,10 +87,9 @@
         }
 
         &__icons {
-            width: 70px;
-            height: 25px;
-            display: flex;
-            align-items: center;
+            max-width: 70px;
+            max-height: 25px;
+            @extend %display-flex-align-items-center;
             gap: 20px;
 
             .bi-person {

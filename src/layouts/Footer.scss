@@ -4,16 +4,14 @@
 .footer {
     max-width: 100%;
     min-height: 220px;
-    max-height: 220px;
-    padding-left: 100px;
-    padding-right: 100px;
+    padding: 0px 100px 0px;
     background-color: $Primary;
-    display: flex;
-    align-items: center;
+    @extend %display-flex-align-items-center;
 
     &__information {
-        width: 60%;
-        display: flex;
+        min-width: 60%;
+        max-width: 60%;
+        @extend %display-flex;
         gap: 70px;
 
         &--main {
@@ -29,48 +27,42 @@
         }
 
         &__policy {
-            width: 155px;
-            display: flex;
-            flex-direction: column;
+            min-width: 155px;
+            @extend %display-flex-flex-direction-column ;
             gap: 10px;
         }
 
         &__about {
-            width: 155px;
-            display: flex;
-            flex-direction: column;
+            min-width: 155px;
+            @extend %display-flex-flex-direction-column ;
             gap: 10px;
         }
 
         &__categories {
-            width: 155px;
-            display: flex;
-            flex-direction: column;
+            min-width: 155px;
+            @extend %display-flex-flex-direction-column ;
             gap: 10px;
         }
 
         &__brands {
-            width: 155px;
-            display: flex;
-            flex-direction: column;
+            min-width: 155px;
+            @extend %display-flex-flex-direction-column ;
             gap: 10px;
         }
     }
 
     &__right {
-        width: 40%;
-        display: flex;
+        min-width: 40%;
+        @extend %display-flex;
         justify-content: end;
 
         &__container {
-            display: flex;
-            flex-direction: column;
+            @extend %display-flex-flex-direction-column ;
             gap: 7px;
             
             &__location {
-                display: flex;
+                @extend %display-flex-align-items-center;
                 justify-content: end;
-                align-items: center;
                 gap: 5px;
 
                 .bi-geo-alt {

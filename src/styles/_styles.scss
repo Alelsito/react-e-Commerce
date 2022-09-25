@@ -22,3 +22,19 @@ $Light-Text: rgba(182, 182, 182, 1);
 $Type-High-Emphasis: rgba(23, 21, 32, 1);
 $Type-Low-Emphasis: rgba(98, 98, 98, 1);
 $Tranparent: rgba(222, 222, 222, 0.7);
+
+// Extends
+
+%display-flex {
+    display: flex;
+}
+
+%display-flex-align-items-center {
+    display: flex;
+    align-items: center;
+}
+
+%display-flex-flex-direction-column {
+    display: flex;
+    flex-direction: column;
+}
