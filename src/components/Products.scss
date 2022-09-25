@@ -1,0 +1,13 @@
+// _styles.scss
+@import '../styles/styles';
+
+.products {
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 15px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    // background-color: $Grey;
+}

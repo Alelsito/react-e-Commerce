@@ -1,0 +1,83 @@
+// _styles.scss
+@import '../styles/styles';
+
+.card {
+    position: relative;
+    z-index: 0;
+    min-width: 280px;
+    max-width: 280px;
+    min-height: 370px;
+    max-height: 370px;
+    margin: 0px 25px 0px 25px;
+    padding: 10px;
+    // box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    // border-radius: 10px;
+    // background-color: beige;
+
+    &__image {
+        position: relative;
+        width: 280px;
+        height: 280px;
+        margin-bottom: 10px;
+
+        &__product {
+            width: 280px;
+            height: 280px;
+            border-radius: 10px;
+        }
+
+        &__category {
+            position: absolute;
+            top: 18px;
+            left: 140px;
+            width: 120px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            background-color: $Highlight;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+            &__text {
+                font-size: $Label-large;
+                color: $Bright;
+            }
+        }
+    }
+
+    &__info {
+        display: flex;
+        justify-content: space-between;
+
+        &__text {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            &--product-name {
+                font-size: $Body;
+                font-weight: 600;
+                color: $Type-High-Emphasis;
+            }
+
+            &--product-brand {
+                font-size: $Label-large;
+                font-weight: 500;
+                color: $Type-Low-Emphasis;
+            }
+
+            &--product-price {
+                font-size: $Body;
+                font-weight: 600;
+                color: $Type-High-Emphasis;
+            }
+        }
+
+        &__favorites {
+            .bi-bookmark-heart {
+                font-size: 24px;
+            }
+        }
+    }
+}

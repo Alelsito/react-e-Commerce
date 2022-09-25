@@ -1,14 +1,18 @@
 import React from 'react'
-import About from '../layouts/About'
 
 // Layouts
 import Navbar from '../layouts/Navbar'
+import About from '../layouts/About'
+
+// Components
+import Products from '../components/Products'
 
 const Home = () => {
   return (
     <>
       <Navbar />
       <About />
+      <Products />
     </>
   )
 }

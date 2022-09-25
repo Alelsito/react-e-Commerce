@@ -2,9 +2,9 @@
 @import '../styles/styles';
 
 .base {
-    position: relative;
     margin-left: 50px;
     margin-right: 50px;
+    margin-bottom: 20px;
     min-height: 330px;
     max-height: 330px;
     background-color: $Primary;
@@ -13,6 +13,7 @@
     background-size: cover;
     display: flex;
     justify-content: flex-end;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
 
     &__about {
         display: flex;
