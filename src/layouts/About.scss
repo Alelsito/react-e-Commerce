@@ -1,0 +1,48 @@
+// _styles.scss
+@import '../styles/styles';
+
+.base {
+    position: relative;
+    margin-left: 50px;
+    margin-right: 50px;
+    min-height: 330px;
+    max-height: 330px;
+    background-color: $Primary;
+    border-radius: 25px;
+    background-image: url('../assets/About-image.png');
+    background-size: cover;
+    display: flex;
+    justify-content: flex-end;
+
+    &__about {
+        display: flex;
+        flex-direction: column;
+        min-width: 57%;
+        max-width: 57%;
+        height: 200px;
+        margin-top: 35px;
+        border-radius: 25px 0px 0px 25px;
+        background-color: $Tranparent;
+
+        &__text {
+            display: flex;
+            flex-direction: column;
+            // height: 100px;
+            margin-top: 45px;
+            margin-left: 55px;
+
+            &--title {
+                font-size: $Display-Large;
+                font-weight: bolder;
+                color: $Primary;
+            }
+
+            &--subtitle {
+                font-size: $Display-Medium;
+                font-weight: 500;
+                color: $Primary;
+            }
+        }
+
+    }
+}

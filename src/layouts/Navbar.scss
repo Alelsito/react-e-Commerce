@@ -6,6 +6,7 @@
     min-height: 80px;
     max-height: 80px;
     padding: 0px 50px 0px 50px;
+    margin-bottom: 15px;
     position: sticky;
     top: 0;
     display: flex;
@@ -30,7 +31,7 @@
 
             &__text-logo {
                 font-size: $Logo;
-                font-weight: 400;
+                font-weight: 600;
                 color: $Dark;
             }
         }
@@ -42,6 +43,7 @@
             &__text-category {
             color: $Type-High-Emphasis;
             font-size: $Body;
+            font-weight: 500;
             }
         }
     }
