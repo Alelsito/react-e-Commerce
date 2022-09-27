@@ -3,15 +3,13 @@ import Footer from './layouts/Footer'
 import Navbar from './layouts/Navbar'
 
 // Pages
-import Home from './pages/Home'
-// import ProductDetail from './pages/ProductDetail'
+import Router from './routes/Router'
 
 function App () {
   return (
     <>
       <Navbar />
-      <Home />
-      {/* <ProductDetail /> */}
+      <Router />
       <Footer />
     </>
   )
