@@ -13,7 +13,9 @@ const Products = () => {
     <section className='products'>
       {
         context.data.map((product, index) => (
-          index < 100 && <Product key={index} product={product} />)
+          Object.prototype.hasOwnProperty.call(product, 'image') &&
+            index <= 100 && <Product key={index} product={product} />
+        )
         )
       }
     </section>

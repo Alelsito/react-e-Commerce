@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
 
+// Styles
+@import './styles';
+
 // Font
 $myFont: 'Inter', sans-serif;
 
@@ -20,4 +23,13 @@ body {
 
 #root {
     @extend %initial-settings;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+
+    :hover {
+        color: $Highlight;
+    }
 }

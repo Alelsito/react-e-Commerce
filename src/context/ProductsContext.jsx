@@ -12,7 +12,7 @@ const ProductsContext = createContext()
 function ProductsProvider (props) {
   const [data, setData] = useState([])
   const [url, setUrl] = useState(['https://ecomerce-master.herokuapp.com/api/v1/item'])
-  const [selected, setSelected] = useState({})
+  const [selectedProduct, setSelectedProduct] = useState({})
 
   // Llamada a la API
 
@@ -29,8 +29,8 @@ function ProductsProvider (props) {
     data,
     url,
     setUrl,
-    selected,
-    setSelected
+    selectedProduct,
+    setSelectedProduct
   }
 
   return (

@@ -1,28 +1,45 @@
 import React from 'react'
 
+// Context
+import { useProductsContext } from '../../context/ProductsContext'
+
 // Styles
 import './ProductDescription.scss'
 
+// imageNotFound
+import imageNotFound from '../../assets/image-not-found.jpg'
+
 const ProductDescription = () => {
+  const context = useProductsContext()
+  const selectedProduct = context.selectedProduct
   return (
     <section className='structure'>
       <div className='structure__category'>
         <p className='structure__category__text'>
           Category:
-          <span className='structure__category__text--modifier'> Handbag </span>
+          <span className='structure__category__text--modifier'> {selectedProduct.category} </span>
         </p>
       </div>
       <div className='structure__product'>
         <div className='structure__product__image'>
-          <img src='https://i.pinimg.com/originals/eb/83/be/eb83be580847bcdc4c8f403c8085d3c8.jpg' alt='' />
+          <img
+            src={
+                Object.prototype.hasOwnProperty.call(selectedProduct, 'image')
+                  ? `${selectedProduct.image}`
+                  : Object.prototype.hasOwnProperty.call(selectedProduct, 'images')
+                    ? `${selectedProduct.images}`
+                    : `${imageNotFound}`
+                }
+            alt=''
+          />
         </div>
         <div className='structure__product__product-detail'>
           <div className='structure__product__product-detail__first'>
-            <span className='structure__product__product-detail__first__name'> Product-Name </span>
-            <span className='structure__product__product-detail__first__brand'> Brand: </span>
+            <span className='structure__product__product-detail__first__name'> {selectedProduct.product_name} </span>
+            <span className='structure__product__product-detail__first__brand'> Brand: {selectedProduct.brand} </span>
           </div>
           <div className='structure__product__product-detail__second'>
-            <span className='structure__product__product-detail__second__price'> $54.69 </span>
+            <span className='structure__product__product-detail__second__price'> ${selectedProduct.price} </span>
           </div>
           <div className='structure__product__product-detail__divider' />
           <div className='structure__product__product-detail__third'>
@@ -30,7 +47,7 @@ const ProductDescription = () => {
               <span className='structure__product__product-detail__third__text'> Description </span>
             </div>
             <span className='structure__product__product-detail__third__text--modifier'>
-              The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design
+              {selectedProduct.description}
             </span>
           </div>
           <div className='structure__product__product-detail__fourth'>
