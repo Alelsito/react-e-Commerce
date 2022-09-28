@@ -23,7 +23,8 @@ const Product = ({ product }) => {
           : (
             <Link to={`/product/${product._id}`}>
               <article
-                className='card' onClick={() => {
+                className='card'
+                onClick={() => {
                   context.setSelectedProduct(product)
                 }}
               >

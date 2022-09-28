@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom'
+
 // Logo
 import logo from '@/assets/Bugis-Logo.png'
 
@@ -11,8 +13,10 @@ const Navbar = () => {
     <nav className='nav'>
       <div className='nav__first-side'>
         <div className='nav__first-side__logo'>
-          <img src={logo} alt='logo' className='nav__first-side__logo__image' />
-          <span className='nav__first-side__logo__text-logo'> Bugi's </span>
+          <Link to='/'>
+            <img src={logo} alt='logo' className='nav__first-side__logo__image' />
+            <span className='nav__first-side__logo__text-logo'> Bugi's </span>
+          </Link>
         </div>
         <div className='nav__first-side__categories'>
           <span className='nav__first-side__categories__text-category'> Opcion </span>

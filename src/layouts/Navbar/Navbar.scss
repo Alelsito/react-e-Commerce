@@ -18,11 +18,14 @@
         @extend %display-flex-align-items-center;
         gap: 36px;
 
+        a {
+            @extend %display-flex-align-items-center;
+            gap: 5px;
+        }
+
         &__logo {
             width: auto;
             min-height: 30px;
-            @extend %display-flex-align-items-center;
-            gap: 5px;
 
             &__image {
                 width: auto;

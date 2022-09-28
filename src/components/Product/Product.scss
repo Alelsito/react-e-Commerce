@@ -5,7 +5,7 @@
     position: relative;
     z-index: 0;
     min-width: 280px;
-    min-height: 370px;
+    min-height: 30px;
     padding: 10px;
     box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
     border-radius: 10px;
@@ -53,6 +53,7 @@
 
         &__text {
             display: flex;
+            max-width: 250px;
             @extend %display-flex-flex-direction-column ;
             gap: 5px;
 
