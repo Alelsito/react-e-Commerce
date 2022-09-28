@@ -7,17 +7,21 @@
     min-width: 280px;
     min-height: 370px;
     padding: 10px;
-    // box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
-    // border-radius: 10px;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    border-radius: 10px;
 
     &__image {
         position: relative;
         min-width: 280px;
+        max-width: 280px;
         min-height: 280px;
+        max-height: 280px;
         margin-bottom: 8px;
 
         &__product {
             min-width: 280px;
+            max-width: 280px;
+            min-height: 280px;
             max-height: 280px;
             border-radius: 10px;
         }
@@ -42,6 +46,8 @@
     }
 
     &__info {
+        min-width: 280px;
+        max-width: 280px;
         @extend %display-flex;
         justify-content: space-between;
 

@@ -5,20 +5,17 @@ import './Products.scss'
 
 // Components
 import Product from '../Product'
+import { useProductsContext } from '../../context/ProductsContext'
 
 const Products = () => {
+  const context = useProductsContext()
   return (
     <section className='products'>
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
+      {
+        context.data.map((product, index) => (
+          index < 100 && <Product key={index} product={product} />)
+        )
+      }
     </section>
   )
 }
