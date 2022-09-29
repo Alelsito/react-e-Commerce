@@ -40,8 +40,10 @@
 
         &__product-detail {
             position: relative;
+            min-width: 40%;
             max-width: 50%;
             min-height: 580px;
+            max-height: 580px;
             @extend %display-flex-flex-direction-column;
 
             &__first {

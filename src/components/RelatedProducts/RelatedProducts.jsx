@@ -13,8 +13,10 @@ const RelatedProducts = () => {
   const selectedProduct = context.selectedProduct
 
   const filterByCategory = context.data.filter((product) => (
-    Object.prototype.hasOwnProperty.call(product, 'category') && product.category.includes(selectedProduct.category)
+    Object.prototype.hasOwnProperty.call(product, 'category') &&
+    product.category.includes(selectedProduct.category)
   ))
+  console.log(filterByCategory)
 
   return (
     <section className='related'>
@@ -28,8 +30,8 @@ const RelatedProducts = () => {
       <article className='related__products'>
         {
           filterByCategory.map((product, index) => (
-            (product._id !== selectedProduct._id || product.product_name !== selectedProduct.product_name) &&
-            Object.prototype.hasOwnProperty.call(product, 'image') && index < 15 && <Product key={index} product={product} />
+            (product._id !== selectedProduct._id) &&
+            index < 17 && <Product key={index} product={product} />
           ))
         }
       </article>

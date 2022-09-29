@@ -14,7 +14,7 @@ const Products = () => {
       {
         context.data.map((product, index) => (
           Object.prototype.hasOwnProperty.call(product, 'image') &&
-            index <= 100 && <Product key={index} product={product} />
+            index <= 200 && <Product key={index} product={product} />
         )
         )
       }

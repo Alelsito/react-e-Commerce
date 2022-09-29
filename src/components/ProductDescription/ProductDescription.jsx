@@ -30,7 +30,12 @@ const ProductDescription = () => {
                     ? `${selectedProduct.images}`
                     : `${imageNotFound}`
                 }
-            alt=''
+            alt={selectedProduct._product_name}
+            onError={(e) => {
+              if (e.target.src !== `${imageNotFound}`) {
+                e.target.src = `${imageNotFound}`
+              }
+            }}
           />
         </div>
         <div className='structure__product__product-detail'>
