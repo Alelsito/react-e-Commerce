@@ -11,6 +11,7 @@ const ProductsContext = createContext()
 
 function ProductsProvider (props) {
   const [data, setData] = useState([])
+  const [searcherData, setSearcherData] = useState(null)
   const [url, setUrl] = useState(['https://ecomerce-master.herokuapp.com/api/v1/item'])
   const [selectedProduct, setSelectedProduct] = useState({})
 
@@ -27,6 +28,8 @@ function ProductsProvider (props) {
   // Values que necesito
   const value = {
     data,
+    searcherData,
+    setSearcherData,
     url,
     setUrl,
     selectedProduct,

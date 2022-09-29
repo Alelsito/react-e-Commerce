@@ -1,7 +1,12 @@
 import React from 'react'
 
-// React router dom (link)
-import { Link } from 'react-router-dom'
+// React router dom (link, Navigate)
+import { Link, useNavigate } from 'react-router-dom'
+
+// Context
+import { useProductsContext } from '../../context/ProductsContext'
+// UseForm
+import useForm from '../../hooks/useForm'
 
 // ScrollUp
 import scrollUP from '@/utils/scrollUp'
@@ -13,6 +18,24 @@ import logo from '@/assets/Bugis-Logo.png'
 import './Navbar.scss'
 
 const Navbar = () => {
+  const context = useProductsContext()
+  const navigate = useNavigate()
+
+  const searchedData = (data) => {
+    navigate('/')
+    const searchOfData = context.data.filter((product) => (
+      product.product_name.toLowerCase().includes(data.search.toLowerCase())
+    ))
+
+    data.search.length !== 0
+      ? context.setSearcherData(searchOfData)
+      : context.setSearcherData(null)
+  }
+
+  const { input, handleInputChange, handleSubmit } = useForm(searchedData, {
+    search: ''
+  })
+
   return (
     <nav className='nav'>
       <div className='nav__first-side'>
@@ -30,9 +53,17 @@ const Navbar = () => {
         </div>
       </div>
       <div className='nav-second-side'>
-        <form className='nav-second-side__searcher'>
-          <input type='text' placeholder='Search products...' className='nav-second-side__searcher__input' />
-          <button className='nav-second-side__searcher__button-search'>
+        <form className='nav-second-side__searcher' onSubmit={handleSubmit}>
+          <input
+            type='text'
+            placeholder='Search products...'
+            className='nav-second-side__searcher__input'
+            id='search'
+            name='search'
+            value={input.search}
+            onChange={handleInputChange}
+          />
+          <button className='nav-second-side__searcher__button-search' type='submit'>
             <i className='fa-solid fa-magnifying-glass fa-lg' />
           </button>
         </form>

@@ -12,11 +12,15 @@ const Products = () => {
   return (
     <section className='products'>
       {
-        context.data.map((product, index) => (
-          Object.prototype.hasOwnProperty.call(product, 'image') &&
-            index <= 200 && <Product key={index} product={product} />
-        )
-        )
+        context.searcherData !== null
+          ? context.searcherData.map((product, index) => (
+            Object.prototype.hasOwnProperty.call(product, 'image') &&
+              <Product key={index} product={product} />
+          ))
+          : context.data.map((product, index) => (
+            Object.prototype.hasOwnProperty.call(product, 'image') &&
+              index <= 200 && <Product key={index} product={product} />
+          ))
       }
     </section>
   )

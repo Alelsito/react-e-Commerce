@@ -16,7 +16,6 @@ const RelatedProducts = () => {
     Object.prototype.hasOwnProperty.call(product, 'category') &&
     product.category.includes(selectedProduct.category)
   ))
-  console.log(filterByCategory)
 
   return (
     <section className='related'>
