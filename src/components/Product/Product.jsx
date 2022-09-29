@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom'
 // Context
 import { useProductsContext } from '../../context/ProductsContext'
 
+// ScrollUp
+import scrollUP from '@/utils/scrollUp'
+
 // Styles
 import './Product.scss'
 
@@ -21,7 +24,7 @@ const Product = ({ product }) => {
         product === undefined
           ? (<></>)
           : (
-            <Link to={`/product/${product._id}`}>
+            <Link to={`/product/${product._id}`} onClick={scrollUP}>
               <article
                 className='card'
                 onClick={() => {

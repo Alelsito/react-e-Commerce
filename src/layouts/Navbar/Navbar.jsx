@@ -1,6 +1,10 @@
 import React from 'react'
 
+// React router dom (link)
 import { Link } from 'react-router-dom'
+
+// ScrollUp
+import scrollUP from '@/utils/scrollUp'
 
 // Logo
 import logo from '@/assets/Bugis-Logo.png'
@@ -13,7 +17,7 @@ const Navbar = () => {
     <nav className='nav'>
       <div className='nav__first-side'>
         <div className='nav__first-side__logo'>
-          <Link to='/'>
+          <Link to='/' onClick={scrollUP}>
             <img src={logo} alt='logo' className='nav__first-side__logo__image' />
             <span className='nav__first-side__logo__text-logo'> Bugi's </span>
           </Link>
