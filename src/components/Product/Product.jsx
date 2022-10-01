@@ -37,10 +37,8 @@ const Product = ({ product }) => {
                         Object.prototype.hasOwnProperty.call(product, 'image')
                           ? `${product.image}`
                           : `${imageNotFound}`
-                            ? `${product.images}`
-                            : `${imageNotFound}`
                         }
-                    alt={product.product_name}
+                    alt={product?.product_name}
                     className='card__image__product'
                     onError={(e) => {
                       if (e.target.src !== `${imageNotFound}`) {
@@ -60,9 +58,9 @@ const Product = ({ product }) => {
                 </div>
                 <div className='card__info'>
                   <div className='card__info__text'>
-                    <span className='card__info__text--product-name'> {product.product_name} </span>
-                    <span className='card__info__text--product-brand'> Brand: {product.brand} </span>
-                    <span className='card__info__text--product-price'> ${product.price} </span>
+                    <span className='card__info__text--product-name'> {product?.product_name} </span>
+                    <span className='card__info__text--product-brand'> Brand: {product?.brand} </span>
+                    <span className='card__info__text--product-price'> ${product?.price} </span>
                   </div>
                   <div className='card__info__favorites'>
                     <i className='bi bi-bookmark-heart' />

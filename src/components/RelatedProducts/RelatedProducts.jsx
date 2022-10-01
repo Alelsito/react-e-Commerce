@@ -29,7 +29,7 @@ const RelatedProducts = () => {
       <article className='related__products'>
         {
           filterByCategory.map((product, index) => (
-            (product._id !== selectedProduct._id) &&
+            (product?._id !== selectedProduct?._id) &&
             index < 17 && <Product key={index} product={product} />
           ))
         }
