@@ -22,9 +22,10 @@ const Navbar = () => {
   const navigate = useNavigate()
 
   const searchedData = (data) => {
+    scrollUP()
     navigate('/')
     const searchOfData = context.data.filter((product) => (
-      product.product_name.toLowerCase().includes(data.search.toLowerCase())
+      product.product_name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().includes(data.search.toLowerCase())
     ))
 
     data.search.length !== 0
