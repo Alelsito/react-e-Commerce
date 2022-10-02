@@ -1,6 +1,29 @@
 // _styles.scss
 @import '@/styles/styles';
 
+// Mixins
+
+@mixin button-login {
+    all: unset;
+    min-width: 80px;
+    min-height: 36px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+}
+
+@mixin button-signup {
+    all: unset;
+    min-width: 80px;
+    min-height: 36px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    color: $Bright;
+}
+
 .nav {
     position: sticky;
     top: 0;
@@ -20,7 +43,7 @@
 
         a {
             @extend %display-flex-align-items-center;
-            gap: 5px;
+            gap: 7px;
         }
 
         &__logo {
@@ -28,8 +51,14 @@
             min-height: 30px;
 
             &__image {
-                width: auto;
                 max-height: 30px;
+                transform: rotate(10deg);
+
+                &--login {
+                    max-height: 30px;
+                    transform: rotate(-25deg);
+                    margin-bottom: 5px;
+                }
             }
 
             &__text-logo {
@@ -89,20 +118,30 @@
             }
         }
 
-        &__icons {
-            max-width: 70px;
-            max-height: 25px;
+        &__buttons {
             @extend %display-flex-align-items-center;
-            gap: 20px;
+            gap: 19px;
 
-            .bi-person {
-                font-size: 27.7px;
+            &__login {
+                @include button-login;
+                border: 1px solid $Primary;
                 color: $Primary;
+                
+                &--signup {
+                    @include  button-login;
+                    border: 1px solid $Dark;
+                    color: $Dark;
+                }
             }
-            .bi-bag {
-                padding-bottom: 1px;
-                font-size: 23px;
-                color: $Primary;
+
+            &__signup {
+                @include button-signup;
+                background-color: $Primary;
+
+                &--signup {
+                    @include button-signup;
+                    background-color: $Highlight;
+                }
             }
         }
     }

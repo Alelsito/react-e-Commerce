@@ -26,7 +26,7 @@
     all: unset;
     max-width: 100%;
     min-height: 40px;
-    margin-bottom: 24px;
+    margin-top: 17px;
     border-radius: 40px;
     text-align: center;
     font-size: 15px;
@@ -148,7 +148,7 @@
         &__inputs {
             @extend %display-flex-flex-direction-column;
             gap: 15px;
-            margin-bottom: 32px;
+            margin-bottom: 24px;
             
             &__input {
                 all: unset;
@@ -204,15 +204,15 @@
             .bi-key-login {
                 margin: 70px 0px 0px 10px;
             }
-        }
 
-        &__button-principal {
-            @include button-principal;
-            background-color: $Highlight;
-
-            &--login { 
+            &__button-principal {
                 @include button-principal;
-                background-color: $Primary-Tint;
+                background-color: $Highlight;
+                
+                &--login { 
+                    @include button-principal;
+                    background-color: $Primary-Tint;
+                }
             }
         }
 
@@ -227,9 +227,8 @@
 
         &__button-secondary {
             all: unset;
-            max-width: 100%;
+            min-width: 100%;
             min-height: 40px;
-            margin-bottom: 24px;
             border-radius: 40px;
             border: 1px solid $Dark;
             text-align: center;

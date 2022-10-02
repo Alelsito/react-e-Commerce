@@ -1,10 +1,11 @@
 import React from 'react'
 
-// React router dom (link, Navigate)
-import { Link, useNavigate } from 'react-router-dom'
+// React router dom (link, Navigate, useLocation)
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 
 // Context
 import { useProductsContext } from '../../context/ProductsContext'
+
 // UseForm
 import useForm from '../../hooks/useForm'
 
@@ -13,12 +14,14 @@ import scrollUP from '@/utils/scrollUp'
 
 // Logo
 import logo from '@/assets/Bugis-Logo.png'
+import logoZero from '@/assets/Zero-Logo.png'
 
 // Style
 import './Navbar.scss'
 
 const Navbar = () => {
   const context = useProductsContext()
+  const location = useLocation()
   const navigate = useNavigate()
 
   const searchedData = (data) => {
@@ -41,10 +44,24 @@ const Navbar = () => {
     <nav className='nav'>
       <div className='nav__first-side'>
         <div className='nav__first-side__logo'>
-          <Link to='/' onClick={scrollUP}>
-            <img src={logo} alt='logo' className='nav__first-side__logo__image' />
-            <span className='nav__first-side__logo__text-logo'> Bugi's </span>
-          </Link>
+          {
+            (location.pathname === '/' || location.pathname.includes('/product') || location.pathname === '/signup') &&
+            (
+              <Link to='/' onClick={scrollUP}>
+                <img src={logo} alt='logo' className='nav__first-side__logo__image' />
+                <span className='nav__first-side__logo__text-logo'> Bugi's </span>
+              </Link>
+            )
+          }
+          {
+            location.pathname === '/login' &&
+            (
+              <Link to='/' onClick={scrollUP}>
+                <img src={logoZero} alt='logo' className='nav__first-side__logo__image--login' />
+                <span className='nav__first-side__logo__text-logo'> Bugi's </span>
+              </Link>
+            )
+          }
         </div>
         <div className='nav__first-side__categories'>
           <span className='nav__first-side__categories__text-category'> Opcion </span>
@@ -68,9 +85,44 @@ const Navbar = () => {
             <i className='fa-solid fa-magnifying-glass fa-lg' />
           </button>
         </form>
-        <div className='nav-second-side__icons'>
-          <i className='bi bi-person' />
-          <i className='bi bi-bag' />
+        <div className='nav-second-side__buttons'>
+          {
+            (location.pathname === '/' || location.pathname.includes('/product')) &&
+            (
+              <>
+                <Link to='/login'>
+                  <button className='nav-second-side__buttons__login'> Login </button>
+                </Link>
+                <Link to='/signup'>
+                  <button className='nav-second-side__buttons__signup'> Sign up </button>
+                </Link>
+              </>
+            )
+          }
+          {
+            location.pathname === '/signup'
+              ? (
+                <>
+                  <Link to='/login'>
+                    <button className='nav-second-side__buttons__login--signup'> Login </button>
+                  </Link>
+                  <Link to='/signup'>
+                    <button className='nav-second-side__buttons__signup--signup'> Sign up </button>
+                  </Link>
+                </>
+                )
+              : location.pathname === '/login' &&
+              (
+                <>
+                  <Link to='/login'>
+                    <button className='nav-second-side__buttons__login'> Login </button>
+                  </Link>
+                  <Link to='/signup'>
+                    <button className='nav-second-side__buttons__signup'> Sign up </button>
+                  </Link>
+                </>
+              )
+          }
         </div>
       </div>
     </nav>

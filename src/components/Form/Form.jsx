@@ -1,7 +1,7 @@
 import React from 'react'
 
 // React router dom { useLocation }
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 
 // Styles
 import './Form.scss'
@@ -78,6 +78,7 @@ const Form = () => {
                     <i className='bi bi-envelope' />
                     <input type='text' className='form__right-side__inputs__input' placeholder='Password' />
                     <i className='bi bi-key' />
+                    <button className='form__right-side__inputs__button-principal'> Sign up </button>
                   </>
                 )
               }
@@ -89,6 +90,7 @@ const Form = () => {
                     <i className='bi bi-envelope bi-envelope-login' />
                     <input type='text' className='form__right-side__inputs__input' placeholder='Password' />
                     <i className='bi bi-key bi-key-login' />
+                    <button className='form__right-side__inputs__button-principal--login'> Login </button>
                   </>
                 )
               }
@@ -97,9 +99,10 @@ const Form = () => {
                 location.pathname === '/signup' &&
                 (
                   <>
-                    <button className='form__right-side__button-principal'> Sign up </button>
                     <span className='form__right-side__text-low'> Have already an account? </span>
-                    <button className='form__right-side__button-secondary'> Login </button>
+                    <Link to='/login'>
+                      <button className='form__right-side__button-secondary'> Login </button>
+                    </Link>
                   </>
                 )
             }
@@ -107,9 +110,10 @@ const Form = () => {
                 location.pathname === '/login' &&
                 (
                   <>
-                    <button className='form__right-side__button-principal--login'> Login </button>
                     <span className='form__right-side__text-low'> Have no account yet? </span>
-                    <button className='form__right-side__button-secondary'> Signup </button>
+                    <Link to='/signup'>
+                      <button className='form__right-side__button-secondary'> Signup </button>
+                    </Link>
                   </>
                 )
             }
