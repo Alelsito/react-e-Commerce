@@ -25,7 +25,6 @@
     max-height: 750px;
     margin: 45px auto auto auto;
     @extend %display-flex;
-    background-color: $Bright;
     border-radius: 25px;
 
     &__left-side {
@@ -35,6 +34,15 @@
         justify-content: center;
         background-color: $Highlight;
         border-radius: 25px 0px 0px 25px;
+
+        &--login {
+            min-width: 60%;
+            min-height: 100%;
+            @extend %display-flex-align-items-center;
+            justify-content: center;
+            border-radius: 25px 0px 0px 25px;
+            background-color: $Primary-Tint;
+        }
 
         &__structure {
             @extend %display-flex-flex-direction-column;
@@ -46,9 +54,16 @@
         &__image {
             margin-left: 30px;
             margin-bottom: 25px;
-            width: 280px;
-            height: 290px;
+            min-width: 280px;
+            max-height: 290px;
             transform: rotate(8deg);
+
+            &--login {
+                min-width: 280px;
+                max-height: 290px;
+                margin-bottom: 30px;
+                transform: rotate(-40deg);
+            }
         }
 
         &__text--title {
@@ -166,15 +181,20 @@
                 margin: 187px 0px 0px 10px;
             }
 
-            .bi-shield-lock {
-                @extend %icons;
-                margin: 247px 0px 0px 10px;
+            // Login
+            .bi-envelope-login {
+                margin: 11px 0px 0px 10px;
             }
 
             .bi-key {
                 @extend %icons;
                 margin: 247px 0px 0px 10px;
                 font-size: 21px;
+            }
+            
+            // Login
+            .bi-key-login {
+                margin: 70px 0px 0px 10px;
             }
         }
 
@@ -189,6 +209,19 @@
             font-size: 15px;
             font-weight: 500;
             color: $Bright;
+
+            &--login {
+                all: unset;
+                max-width: 100%;
+                min-height: 40px;
+                margin-bottom: 24px;
+                border-radius: 40px;
+                background-color: $Primary-Tint;
+                text-align: center;
+                font-size: 15px;
+                font-weight: 500;
+                color: $Bright;
+            }
         }
 
         &__text-low {
@@ -196,7 +229,7 @@
             margin-bottom: 16px;
             text-align: center;
             font-size: 15px;
-            font-weight: 00;
+            font-weight: 400;
             color: rgb(129 121 121);
         }
 
