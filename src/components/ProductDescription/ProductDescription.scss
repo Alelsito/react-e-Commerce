@@ -90,8 +90,7 @@
                     min-height: 35px;
                     background-color: $Primary;
                     border-radius: 10px;
-                    @extend %display-flex-align-items-center;
-                    justify-content: center;
+                    @extend %display-flex-align-items-center-justify-content-center;
                 }
 
                 &__text {
@@ -118,8 +117,7 @@
                     background-color: $Highlight;
                     border-radius: 10px;
                     border-style: hidden;
-                    @extend %display-flex-align-items-center;
-                    justify-content: center;
+                    @extend %display-flex-align-items-center-justify-content-center;
                     gap: 7px;
 
                     .bi-bag {

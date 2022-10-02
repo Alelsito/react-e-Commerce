@@ -1,15 +1,42 @@
 // _styles.scss
 @import '@/styles/styles';
 
+// Extend
+
 %icons {
     position: absolute;
     font-size: 20px;
     color: rgb(129 121 121);
 }
 
+// Mixin
+
+@mixin left-side {
+    min-width: 60%;
+    min-height: 100%;
+    @extend %display-flex-align-items-center-justify-content-center;
+    border-radius: 25px 0px 0px 25px;
+}
+@mixin image {
+    min-width: 280px;
+    max-height: 290px;
+}
+
+@mixin button-principal {
+    all: unset;
+    max-width: 100%;
+    min-height: 40px;
+    margin-bottom: 24px;
+    border-radius: 40px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    color: $Bright;
+}
+
+
 .background {
     position: absolute;
-    z-index: 0;
     top: 0;
     min-width: 100%;
     min-height: 100%;
@@ -18,7 +45,6 @@
 
 .form {
     position: relative;
-    z-index: 1;
     min-width: 1220px;
     max-width: 1220px;
     min-height: 750px;
@@ -28,19 +54,11 @@
     border-radius: 25px;
 
     &__left-side {
-        min-width: 60%;
-        min-height: 100%;
-        @extend %display-flex-align-items-center;
-        justify-content: center;
+        @include left-side;
         background-color: $Highlight;
-        border-radius: 25px 0px 0px 25px;
 
         &--login {
-            min-width: 60%;
-            min-height: 100%;
-            @extend %display-flex-align-items-center;
-            justify-content: center;
-            border-radius: 25px 0px 0px 25px;
+            @include left-side;
             background-color: $Primary-Tint;
         }
 
@@ -52,15 +70,13 @@
         }
 
         &__image {
-            margin-left: 30px;
+            @include image;
             margin-bottom: 25px;
-            min-width: 280px;
-            max-height: 290px;
+            margin-left: 30px;
             transform: rotate(8deg);
 
             &--login {
-                min-width: 280px;
-                max-height: 290px;
+                @include image;
                 margin-bottom: 30px;
                 transform: rotate(-40deg);
             }
@@ -70,26 +86,22 @@
             font-size: 25px;
             font-weight: 500;
             color: $Bright;
-            @extend %display-flex;
-            justify-content: center;
+            text-align: center;
             margin-bottom: 10px;
         }
 
         &__text--subtitle {
             font-size: 15px;
             font-weight: 400;
-            color: $Bright;
-            @extend %display-flex;
-            justify-content: center;
             margin-bottom: 30px;
+            text-align: center;
+            color: $Bright;
         }
 
         &__circle {
-            position: relative;
             min-width: 100%;
             height: auto;
-            @extend %display-flex;
-            justify-content: center;
+            @extend %display-flex-justify-content-center;
 
             &--big {
                 min-height: 26px;
@@ -101,7 +113,6 @@
             &--small {
                 position: absolute;
                 margin-top: 7px;
-                z-index: 1;
                 min-width: 11px;
                 min-height: 11px;
                 border-radius: 50%;
@@ -114,8 +125,7 @@
         min-width: 40%;
         min-height: 100%;
         border-radius: 0px 25px 25px 0px;
-        @extend %display-flex-align-items-center;
-        justify-content: center;
+        @extend %display-flex-align-items-center-justify-content-center;
         background-color: $Bright;
 
         &__structure {
@@ -129,8 +139,7 @@
         &__title {
             width: 100%;
             height: 30px;
-            @extend %display-flex;
-            justify-content: center;
+            text-align: center;
             font-size: 25px;
             font-weight: 500;
             color: $Type-High-Emphasis;
@@ -147,7 +156,6 @@
                 max-width: 100%;
                 min-height: 40px;
                 max-height: 40px;
-                @extend %display-flex;
                 align-items: center;
                 border-radius: 8px;
                 padding-left: 36px;
@@ -199,28 +207,12 @@
         }
 
         &__button-principal {
-            all: unset;
-            max-width: 100%;
-            min-height: 40px;
-            margin-bottom: 24px;
-            border-radius: 40px;
+            @include button-principal;
             background-color: $Highlight;
-            text-align: center;
-            font-size: 15px;
-            font-weight: 500;
-            color: $Bright;
 
-            &--login {
-                all: unset;
-                max-width: 100%;
-                min-height: 40px;
-                margin-bottom: 24px;
-                border-radius: 40px;
+            &--login { 
+                @include button-principal;
                 background-color: $Primary-Tint;
-                text-align: center;
-                font-size: 15px;
-                font-weight: 500;
-                color: $Bright;
             }
         }
 
