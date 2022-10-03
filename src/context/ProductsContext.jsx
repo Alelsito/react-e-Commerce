@@ -1,21 +1,15 @@
-// Create context
 import { createContext, useContext, useEffect, useState } from 'react'
 import axiosDataGet from '../services/axiosDataGet'
 
-// #1. Creaction del contexto vacio
+// import { useLocation } from 'react-router-dom'
 
 const ProductsContext = createContext()
-
-// #2. Creación del Proveedor del Contexto
-// Es decir, maneja de donde de obtiene y como se pasa la información
 
 function ProductsProvider (props) {
   const [data, setData] = useState([])
   const [searcherData, setSearcherData] = useState(null)
   const [url, setUrl] = useState(['https://ecomerce-master.herokuapp.com/api/v1/item'])
   const [selectedProduct, setSelectedProduct] = useState({})
-
-  // Llamada a la API
 
   useEffect(() => {
     const asyncData = async () => {
@@ -25,7 +19,6 @@ function ProductsProvider (props) {
     asyncData()
   }, [url])
 
-  // Values que necesito
   const value = {
     data,
     searcherData,

@@ -1,17 +1,48 @@
-import React from 'react'
-
 // React router dom { useLocation }
 import { useLocation, Link } from 'react-router-dom'
+
+// Hooks
+import useForm from '../../hooks/useForm'
 
 // Styles
 import './Form.scss'
 
 // Image
-import logoSignup from '../../assets/Bugis-Logo.png'
-import logoLogin from '../../assets/Zero-logo.png'
+import logoSignup from '@/assets/Bugis-Logo.png'
+import logoLogin from '@/assets/Zero-Logo.png'
 
 const Form = () => {
   const location = useLocation()
+
+  const sendDataSignup = (data) => {
+    console.log(data)
+  }
+
+  const sendDataLogin = (data) => {
+    console.log(data)
+  }
+
+  const { input, handleInputChange, handleSubmit } = useForm(
+    location.pathname === '/signup'
+      ? (sendDataSignup)
+      : location.pathname === '/login' &&
+        (sendDataLogin)
+    ,
+    location.pathname === '/signup'
+      ? ({
+          first_name: '',
+          last_name: '',
+          gender: '',
+          email: '',
+          password: ''
+        })
+      : location.pathname === '/login' &&
+        ({
+          email: '',
+          password: ''
+        })
+  )
+
   return (
     <>
       <div className='background' />
@@ -59,42 +90,94 @@ const Form = () => {
                 location.pathname === '/login' &&
                 (<p className='form__right-side__title'>Login</p>)
             }
-            <form className='form__right-side__inputs'>
-              {
+            {
                 location.pathname === '/signup' &&
                 (
-                  <>
-                    <input type='text' className='form__right-side__inputs__input' placeholder='First name' />
+                  <form className='form__right-side__inputs' onSubmit={handleSubmit}>
+                    <input
+                      type='text'
+                      className='form__right-side__inputs__input'
+                      placeholder='First name'
+                      id='first_name'
+                      name='first_name'
+                      value={input?.first_name}
+                      onChange={handleInputChange}
+                    />
                     <i className='bi bi-card-text' />
-                    <input type='text' className='form__right-side__inputs__input' placeholder='Last name' />
+                    <input
+                      type='text'
+                      className='form__right-side__inputs__input'
+                      placeholder='Last name'
+                      id='last_name'
+                      name='last_name'
+                      value={input?.last_name}
+                      onChange={handleInputChange}
+                    />
                     <i className='bi bi-card-text bi-card-text-2' />
-                    <select type='text' className='form__right-side__inputs__input'>
+                    <select
+                      className='form__right-side__inputs__input'
+                      id='gender'
+                      name='gender'
+                      value={input?.gender}
+                      onChange={handleInputChange}
+                    >
                       <option value=''> Gender </option>
                       <option value='M'> Male </option>
                       <option value='F'> Female </option>
                     </select>
                     <i className='bi bi-person' />
-                    <input type='text' className='form__right-side__inputs__input' placeholder='Email' />
+                    <input
+                      type='text'
+                      className='form__right-side__inputs__input'
+                      placeholder='Email'
+                      id='email'
+                      name='email'
+                      value={input?.email}
+                      onChange={handleInputChange}
+                    />
                     <i className='bi bi-envelope' />
-                    <input type='text' className='form__right-side__inputs__input' placeholder='Password' />
+                    <input
+                      type='password'
+                      className='form__right-side__inputs__input'
+                      placeholder='Password'
+                      id='password'
+                      name='password'
+                      value={input?.password}
+                      onChange={handleInputChange}
+                    />
                     <i className='bi bi-key' />
-                    <button className='form__right-side__inputs__button-principal'> Sign up </button>
-                  </>
+                    <button className='form__right-side__inputs__button-principal' type='submit'> Sign up </button>
+                  </form>
                 )
               }
-              {
+            {
                 location.pathname === '/login' &&
                 (
-                  <>
-                    <input type='text' className='form__right-side__inputs__input' placeholder='Email' />
+                  <form className='form__right-side__inputs' onSubmit={handleSubmit}>
+                    <input
+                      type='text'
+                      className='form__right-side__inputs__input'
+                      placeholder='Email'
+                      id='email'
+                      name='email'
+                      value={input?.email}
+                      onChange={handleInputChange}
+                    />
                     <i className='bi bi-envelope bi-envelope-login' />
-                    <input type='text' className='form__right-side__inputs__input' placeholder='Password' />
+                    <input
+                      type='password'
+                      className='form__right-side__inputs__input'
+                      placeholder='Password'
+                      id='password'
+                      name='password'
+                      value={input?.password}
+                      onChange={handleInputChange}
+                    />
                     <i className='bi bi-key bi-key-login' />
-                    <button className='form__right-side__inputs__button-principal--login'> Login </button>
-                  </>
+                    <button className='form__right-side__inputs__button-principal--login' type='submit'> Login </button>
+                  </form>
                 )
               }
-            </form>
             {
                 location.pathname === '/signup' &&
                 (
