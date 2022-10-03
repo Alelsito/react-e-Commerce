@@ -7,4 +7,6 @@ const getAllItems = async () => {
   return data
 }
 
-export { getAllItems }
+const postSignup = (data) => axios.post(`${BASE_URL}/signup`, data)
+
+export { getAllItems, postSignup }

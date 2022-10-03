@@ -1,8 +1,11 @@
 // React router dom { useLocation }
-import { useLocation, Link } from 'react-router-dom'
+import { useLocation, Link, useNavigate } from 'react-router-dom'
 
 // Hooks
 import useForm from '../../hooks/useForm'
+
+// Services
+import { postSignup } from '../../services/axiosMethods'
 
 // Styles
 import './Form.scss'
@@ -13,9 +16,17 @@ import logoLogin from '@/assets/Zero-Logo.png'
 
 const Form = () => {
   const location = useLocation()
+  const navigate = useNavigate()
 
-  const sendDataSignup = (data) => {
-    console.log(data)
+  const sendDataSignup = async (data) => {
+    try {
+      const result = await postSignup(data)
+      if (result.status === 200) {
+        navigate('/login')
+      }
+    } catch (error) {
+      console.log(`ocurrio un error ${error.message}`)
+    }
   }
 
   const sendDataLogin = (data) => {
