@@ -1,4 +1,5 @@
 // Context
+import { AuthProvider } from './context/AuthContext'
 import { ProductsProvider } from './context/ProductsContext'
 
 // Router {useLocation}
@@ -14,15 +15,17 @@ import Router from './routes/Router'
 function App () {
   const location = useLocation()
   return (
-    <ProductsProvider>
-      <Navbar />
-      <Router />
-      {
+    <AuthProvider>
+      <ProductsProvider>
+        <Navbar />
+        <Router />
+        {
         location.pathname === '/login' || location.pathname === '/signup'
           ? <></>
           : <Footer />
       }
-    </ProductsProvider>
+      </ProductsProvider>
+    </AuthProvider>
   )
 }
 

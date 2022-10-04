@@ -1,11 +1,17 @@
-// React router dom { useLocation }
+// React
+import { useState } from 'react'
+
+// React router dom
 import { useLocation, Link, useNavigate } from 'react-router-dom'
+
+// Context
+import { useAuthContext } from '../../context/AuthContext'
 
 // Hooks
 import useForm from '../../hooks/useForm'
 
 // Services
-import { postSignup } from '../../services/axiosMethods'
+import { postSignup, postLogin } from '../../services/axiosMethods'
 
 // Styles
 import './Form.scss'
@@ -15,22 +21,47 @@ import logoSignup from '@/assets/Bugis-Logo.png'
 import logoLogin from '@/assets/Zero-Logo.png'
 
 const Form = () => {
+  const context = useAuthContext()
   const location = useLocation()
   const navigate = useNavigate()
+  const [submitError, setSubmitError] = useState(false)
+  const [errorMessage, setErrorMessage] = useState(null)
+
+  const noError = () => {
+    setSubmitError(false)
+    setErrorMessage(null)
+  }
+
+  const showError = (error) => {
+    setSubmitError(true)
+    setErrorMessage(error)
+  }
 
   const sendDataSignup = async (data) => {
     try {
       const result = await postSignup(data)
       if (result.status === 200) {
+        noError()
         navigate('/login')
       }
     } catch (error) {
-      console.log(`ocurrio un error ${error.message}`)
+      submitError === false &&
+      showError(error.message)
     }
   }
 
-  const sendDataLogin = (data) => {
-    console.log(data)
+  const sendDataLogin = async (data) => {
+    try {
+      const result = await postLogin(data)
+      if (result.status === 200) {
+        context.loginUser(result.data.token)
+        noError()
+        navigate('/')
+      }
+    } catch (error) {
+      submitError === false &&
+      showError(error.message)
+    }
   }
 
   const { input, handleInputChange, handleSubmit } = useForm(
@@ -58,6 +89,25 @@ const Form = () => {
     <>
       <div className='background' />
       <article className='form'>
+        {
+          submitError
+            ? (
+              <div className='error'>
+                <div className='error__container'>
+                  <div className='error__container__first'>
+                    <i className='bi bi-exclamation-circle' />
+                    <p> {errorMessage} -- Check it out! </p>
+                  </div>
+                  <div className='error__container__second'>
+                    <i className='bi bi-x-circle' onClick={noError} />
+                  </div>
+                </div>
+              </div>
+              )
+            : (
+              <div className='error--hidden' />
+              )
+        }
         {
             location.pathname === '/signup' &&
             (

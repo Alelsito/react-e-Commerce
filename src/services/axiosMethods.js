@@ -8,5 +8,10 @@ const getAllItems = async () => {
 }
 
 const postSignup = (data) => axios.post(`${BASE_URL}/signup`, data)
+const postLogin = (data) => axios.post(`${BASE_URL}/login`, data)
 
-export { getAllItems, postSignup }
+export {
+  getAllItems,
+  postSignup,
+  postLogin
+}
