@@ -3,7 +3,7 @@
 
 // Mixins
 
-@mixin button-login {
+@mixin button-login-or-userName {
     all: unset;
     min-width: 80px;
     min-height: 36px;
@@ -123,12 +123,12 @@
             gap: 19px;
 
             &__login {
-                @include button-login;
+                @include button-login-or-userName;
                 border: 1px solid $Primary;
                 color: $Primary;
                 
                 &--signup {
-                    @include  button-login;
+                    @include  button-login-or-userName;
                     border: 1px solid $Dark;
                     color: $Dark;
                 }
@@ -142,6 +142,12 @@
                     @include button-signup;
                     background-color: $Highlight;
                 }
+            }
+
+            &__user-name {
+                @include button-login-or-userName;
+                border: 1px solid $Primary;
+                color: $Primary;
             }
         }
     }

@@ -4,6 +4,7 @@ import React from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 
 // Context
+import { useAuthContext } from '../../context/AuthContext'
 import { useProductsContext } from '../../context/ProductsContext'
 
 // UseForm
@@ -20,20 +21,21 @@ import logoZero from '@/assets/Zero-Logo.png'
 import './Navbar.scss'
 
 const Navbar = () => {
-  const context = useProductsContext()
+  const contextAuth = useAuthContext()
+  const contextProducts = useProductsContext()
   const location = useLocation()
   const navigate = useNavigate()
 
   const searchedData = (data) => {
     scrollUP()
     navigate('/')
-    const searchOfData = context.data.filter((product) => (
+    const searchOfData = contextProducts.data.filter((product) => (
       product.product_name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().includes(data.search.toLowerCase())
     ))
 
     data.search.length !== 0
-      ? context.setSearcherData(searchOfData)
-      : context.setSearcherData(null)
+      ? contextProducts.setSearcherData(searchOfData)
+      : contextProducts.setSearcherData(null)
   }
 
   const { input, handleInputChange, handleSubmit } = useForm(searchedData, {
@@ -44,24 +46,19 @@ const Navbar = () => {
     <nav className='nav'>
       <div className='nav__first-side'>
         <div className='nav__first-side__logo'>
-          {
-            (location.pathname === '/' || location.pathname.includes('/product') || location.pathname === '/signup') &&
-            (
-              <Link to='/' onClick={scrollUP}>
-                <img src={logo} alt='logo' className='nav__first-side__logo__image' />
-                <span className='nav__first-side__logo__text-logo'> Bugi's </span>
-              </Link>
-            )
-          }
-          {
-            location.pathname === '/login' &&
-            (
-              <Link to='/' onClick={scrollUP}>
-                <img src={logoZero} alt='logo' className='nav__first-side__logo__image--login' />
-                <span className='nav__first-side__logo__text-logo'> Bugi's </span>
-              </Link>
-            )
-          }
+          <Link to='/' onClick={scrollUP}>
+            {
+            contextAuth.isAuth === false
+              ? (location.pathname !== '/login'
+                  ? (<img src={logo} alt='logo' className='nav__first-side__logo__image' />)
+                  : (<img src={logoZero} alt='logoZero' className='nav__first-side__logo__image--login' />)
+                )
+              : (
+                <img src={logoZero} alt='logoZero' className='nav__first-side__logo__image--login' />
+                )
+            }
+            <span className='nav__first-side__logo__text-logo'> Bugi's </span>
+          </Link>
         </div>
         <div className='nav__first-side__categories'>
           <span className='nav__first-side__categories__text-category'> Opcion </span>
@@ -87,41 +84,30 @@ const Navbar = () => {
         </form>
         <div className='nav-second-side__buttons'>
           {
-            (location.pathname === '/' || location.pathname.includes('/product')) &&
-            (
-              <>
-                <Link to='/login'>
-                  <button className='nav-second-side__buttons__login'> Login </button>
-                </Link>
-                <Link to='/signup'>
-                  <button className='nav-second-side__buttons__signup'> Sign up </button>
-                </Link>
-              </>
-            )
-          }
-          {
-            location.pathname === '/signup'
+            contextAuth.isAuth === false
               ? (
                 <>
                   <Link to='/login'>
-                    <button className='nav-second-side__buttons__login--signup'> Login </button>
+                    {
+                      location.pathname !== '/signup'
+                        ? <button className='nav-second-side__buttons__login'> Login </button>
+                        : <button className='nav-second-side__buttons__login--signup'> Login </button>
+                    }
                   </Link>
                   <Link to='/signup'>
-                    <button className='nav-second-side__buttons__signup--signup'> Sign up </button>
+                    {
+                      location.pathname !== '/signup'
+                        ? <button className='nav-second-side__buttons__signup'> Sign up </button>
+                        : <button className='nav-second-side__buttons__signup--signup'> Sign up </button>
+                    }
                   </Link>
                 </>
                 )
-              : location.pathname === '/login' &&
-              (
+              : (
                 <>
-                  <Link to='/login'>
-                    <button className='nav-second-side__buttons__login'> Login </button>
-                  </Link>
-                  <Link to='/signup'>
-                    <button className='nav-second-side__buttons__signup'> Sign up </button>
-                  </Link>
+                  <button className='nav-second-side__buttons__user-name'> Hola "Nombre del usuario" </button>
                 </>
-              )
+                )
           }
         </div>
       </div>
