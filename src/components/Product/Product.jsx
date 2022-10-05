@@ -1,7 +1,7 @@
 import React from 'react'
 
 // React router dom
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 // Context
 import { useProductsContext } from '../../context/ProductsContext'
@@ -17,6 +17,7 @@ import imageNotFound from '../../assets/image-not-found.jpg'
 
 const Product = ({ product }) => {
   const context = useProductsContext()
+  const location = useLocation()
 
   return (
     <>
@@ -48,11 +49,13 @@ const Product = ({ product }) => {
                   />
                   {
                   Object.prototype.hasOwnProperty.call(product, 'category')
-                    ? (
-                      <div className='card__image__category'>
-                        <span className='card__image__category__text'> {product.category} </span>
-                      </div>
-                      )
+                    ? location.pathname.includes('/product')
+                      ? (<></>)
+                      : (
+                        <div className='card__image__category'>
+                          <span className='card__image__category__text'> {product.category} </span>
+                        </div>
+                        )
                     : <></>
                   }
                 </div>
