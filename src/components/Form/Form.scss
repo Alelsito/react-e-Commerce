@@ -11,6 +11,17 @@
 
 // Mixin
 
+@mixin form {
+    position: relative;
+    min-width: 1220px;
+    max-width: 1220px;
+    min-height: 750px;
+    max-height: 750px;
+    margin: 35px auto auto auto;
+    @extend %display-flex;
+    border-radius: 25px;
+}
+
 @mixin left-side {
     min-width: 60%;
     min-height: 100%;
@@ -86,14 +97,12 @@
 }
 
 .form {
-    position: relative;
-    min-width: 1220px;
-    max-width: 1220px;
-    min-height: 750px;
-    max-height: 750px;
-    margin: 35px auto auto auto;
-    @extend %display-flex;
-    border-radius: 25px;
+    @include form;
+
+    &--register-product {
+        @include form;
+        box-shadow: $Highlight 0px 2px 20px 0px;
+    }
 
     &__left-side {
         @include left-side;
@@ -102,6 +111,11 @@
         &--login {
             @include left-side;
             background-color: $Primary-Tint;
+        }
+
+        &--register-product {
+            @include left-side;
+            background-color: $Dark
         }
 
         &__structure {
@@ -122,6 +136,12 @@
                 margin-bottom: 30px;
                 transform: rotate(-40deg);
             }
+
+            &--register-product {
+                @include image;
+                margin-bottom: 7px;
+                margin-right: 28px;
+            }
         }
 
         &__text--title {
@@ -138,6 +158,15 @@
             margin-bottom: 30px;
             text-align: center;
             color: $Bright;
+
+            &--register-product {
+                font-size: 15px;
+                font-weight: 400;
+                margin-bottom: 30px;
+                text-align: center;
+                color: $Bright;
+                line-height: 1.5;
+            }
         }
 
         &__circle {
@@ -150,6 +179,13 @@
                 min-width: 25px;
                 border-radius: 50%;
                 background-color: $Type-High-Emphasis;
+
+                &--register-product {
+                    min-height: 26px;
+                    min-width: 25px;
+                    border-radius: 50%;
+                    background-color: $Type-Low-Emphasis;
+                }
             }
 
             &--small {
@@ -183,7 +219,7 @@
             height: 30px;
             text-align: center;
             font-size: 25px;
-            font-weight: 500;
+            font-weight: 600;
             color: $Type-High-Emphasis;
         }
 
@@ -206,6 +242,7 @@
                 color: rgb(129 121 121);
             }
 
+            // Signup
             .bi-card-text {
                 @extend %icons;
                 margin: 10px 0px 0px 10px;
@@ -247,6 +284,33 @@
                 margin: 70px 0px 0px 10px;
             }
 
+            // Register product
+
+            .bi-box-seam {
+                @extend %icons;
+                margin: 11px 0px 0px 10px;
+            }
+
+            .bi-currency-dollar {
+                @extend %icons;
+                margin: 129px 0px 0px 11px;
+            }
+
+            .bi-tags {
+                @extend %icons;
+                margin: 189px 0px 0px 13px;
+            }
+
+            .bi-c-circle {
+                @extend %icons;
+                margin: 247px 0px 0px 12px
+            }
+
+            .bi-image {
+                @extend %icons;
+                margin: 306px 0px 0px 11px
+            }
+
             &__button-principal {
                 @include button-principal;
                 background-color: $Highlight;
@@ -254,6 +318,11 @@
                 &--login { 
                     @include button-principal;
                     background-color: $Primary-Tint;
+                }
+                
+                &--register-product {
+                    @include button-principal;
+                    background-color: $Dark;
                 }
             }
         }

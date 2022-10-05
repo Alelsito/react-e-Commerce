@@ -182,7 +182,7 @@ const Form = () => {
                       value={input?.gender}
                       onChange={handleInputChange}
                     >
-                      <option value=''> Gender </option>
+                      <option hidden value=''> Gender </option>
                       <option value='M'> Male </option>
                       <option value='F'> Female </option>
                     </select>

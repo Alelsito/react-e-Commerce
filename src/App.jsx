@@ -20,7 +20,7 @@ function App () {
         <Navbar />
         <Router />
         {
-        location.pathname === '/login' || location.pathname === '/signup'
+        location.pathname === '/login' || location.pathname === '/signup' || location.pathname === '/register/product'
           ? <></>
           : <Footer />
       }
