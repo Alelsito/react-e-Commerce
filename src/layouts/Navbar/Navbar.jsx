@@ -121,11 +121,23 @@ const Navbar = () => {
                       : userInfo?.role === 'ADMIN' &&
                         (
                           <Link to='/register/product'>
-                            <button className='nav-second-side__buttons__add-products'>
-                              <i className='bi bi-plus-circle' />
-                              <p> Add products </p>
-                              <i className='bi bi-plus-circle' />
-                            </button>
+                            {
+                              location.pathname !== '/register/product'
+                                ? (
+                                  <button className='nav-second-side__buttons__add-products'>
+                                    <i className='bi bi-plus-circle' />
+                                    <p> Add products </p>
+                                    <i className='bi bi-plus-circle' />
+                                  </button>
+                                  )
+                                : (
+                                  <button className='nav-second-side__buttons__add-products--black'>
+                                    <i className='bi bi-plus-circle' />
+                                    <p> Add products </p>
+                                    <i className='bi bi-plus-circle' />
+                                  </button>
+                                  )
+                            }
                           </Link>
                         )
                   }

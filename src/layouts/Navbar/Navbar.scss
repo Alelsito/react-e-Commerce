@@ -24,6 +24,17 @@
     color: $Bright;
 }
 
+@mixin button-add-products {
+    @include button-login-or-userName;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    color: $Bright;
+    padding: 0px 20px 0px;
+    font-weight: 500;
+}
+
 .nav {
     position: sticky;
     top: 0;
@@ -155,15 +166,13 @@
             }
 
             &__add-products {
-                @include button-login-or-userName;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 7px;
+                @include button-add-products;
                 background-color: $Highlight;
-                color: $Bright;
-                padding: 0px 20px 0px;
-                font-weight: 500;
+
+                &--black {
+                    @include button-add-products;
+                    background-color: $Dark;
+                }
 
                 .bi-plus-circle {
                     font-size: 18px;
