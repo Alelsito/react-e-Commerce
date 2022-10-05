@@ -14,8 +14,9 @@ import useForm from '../../hooks/useForm'
 import scrollUP from '@/utils/scrollUp'
 
 // Logo
-import logo from '@/assets/Bugis-Logo.png'
+import logoBugi from '@/assets/Bugis-Logo.png'
 import logoZero from '@/assets/Zero-Logo.png'
+import jackLogo from '@/assets/Jack-Logo.png'
 
 // Style
 import './Navbar.scss'
@@ -52,12 +53,18 @@ const Navbar = () => {
             {
             contextAuth.isAuth === false
               ? (location.pathname !== '/login'
-                  ? (<img src={logo} alt='logo' className='nav__first-side__logo__image' />)
+                  ? (<img src={logoBugi} alt='logoBugi' className='nav__first-side__logo__image' />)
                   : (<img src={logoZero} alt='logoZero' className='nav__first-side__logo__image--login' />)
                 )
-              : (
-                <img src={logoZero} alt='logoZero' className='nav__first-side__logo__image--login' />
-                )
+              : userInfo !== null &&
+                userInfo?.role === 'CUSTOMER'
+                ? (
+                  <img src={logoZero} alt='logoZero' className='nav__first-side__logo__image--login' />
+                  )
+                : userInfo?.role === 'ADMIN' &&
+                    (
+                      <img src={jackLogo} alt='jackLogo' className='nav__first-side__logo__image' />
+                    )
             }
             <span className='nav__first-side__logo__text-logo'> Bugi's </span>
           </Link>
@@ -107,6 +114,21 @@ const Navbar = () => {
                 )
               : (
                 <>
+                  {
+                    userInfo !== null &&
+                    userInfo?.role === 'CUSTOMER'
+                      ? (<></>)
+                      : userInfo?.role === 'ADMIN' &&
+                        (
+                          <Link to='/register/product'>
+                            <button className='nav-second-side__buttons__add-products'>
+                              <i className='bi bi-plus-circle' />
+                              <p> Add products </p>
+                              <i className='bi bi-plus-circle' />
+                            </button>
+                          </Link>
+                        )
+                  }
                   <button className='nav-second-side__buttons__user-name'>
                     Hola
                     "{

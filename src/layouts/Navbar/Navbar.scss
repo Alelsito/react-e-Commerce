@@ -7,6 +7,7 @@
     all: unset;
     min-width: 80px;
     min-height: 36px;
+    max-height: 36px;
     border-radius: 8px;
     font-size: 15px;
     text-align: center;
@@ -36,7 +37,7 @@
     box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 
     &__first-side {
-        min-width: 50%;
+        min-width: 30%;
         @extend %display-flex-align-items-center;
         gap: 36px;
 
@@ -80,7 +81,7 @@
     }
 
     .nav-second-side {
-        min-width: 50%;
+        min-width: 70%;
         @extend %display-flex-align-items-center;
         justify-content: flex-end;
         gap: 30px;
@@ -151,6 +152,22 @@
                 color: $Bright;
                 padding: 0px 20px 0px;
                 font-weight: 500;
+            }
+
+            &__add-products {
+                @include button-login-or-userName;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 7px;
+                background-color: $Highlight;
+                color: $Bright;
+                padding: 0px 20px 0px;
+                font-weight: 500;
+
+                .bi-plus-circle {
+                    font-size: 18px;
+                }
             }
 
             .fa-arrow-right-from-bracket {
