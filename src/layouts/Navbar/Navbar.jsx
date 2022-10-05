@@ -22,6 +22,7 @@ import './Navbar.scss'
 
 const Navbar = () => {
   const contextAuth = useAuthContext()
+  const logout = contextAuth.logout
   const userInfo = contextAuth.userInfo
   const contextProducts = useProductsContext()
   const location = useLocation()
@@ -114,6 +115,12 @@ const Navbar = () => {
                         : ('...')
                     }"
                   </button>
+                  <i
+                    className='fa-solid fa-arrow-right-from-bracket' onClick={() => {
+                      logout()
+                      scrollUP()
+                    }}
+                  />
                 </>
                 )
           }

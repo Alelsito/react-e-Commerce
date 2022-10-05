@@ -24,6 +24,13 @@ function AuthProvider (props) {
     setIsAuth(true)
   }
 
+  const logout = () => {
+    window.localStorage.removeItem('token')
+    setIsAuth(false)
+    setUserDecoded(null)
+    setUserInfo(null)
+  }
+
   const getUserInfo = async (id) => {
     try {
       const result = await getSpecificUser(id)
@@ -53,7 +60,8 @@ function AuthProvider (props) {
     isAuth,
     userDecoded,
     userInfo,
-    loginUser
+    loginUser,
+    logout
   }
 
   return (
