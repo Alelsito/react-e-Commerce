@@ -1,7 +1,9 @@
-import React from 'react'
+// React router dom
+import { Link } from 'react-router-dom'
 
 // Context
 import { useProductsContext } from '../../context/ProductsContext'
+import { useAuthContext } from '../../context/AuthContext'
 
 // Styles
 import './ProductDescription.scss'
@@ -10,8 +12,9 @@ import './ProductDescription.scss'
 import imageNotFound from '../../assets/image-not-found.jpg'
 
 const ProductDescription = () => {
-  const context = useProductsContext()
-  const selectedProduct = context.selectedProduct
+  const contextProducts = useProductsContext()
+  const contextAuth = useAuthContext()
+  const selectedProduct = contextProducts.selectedProduct
   return (
     <section className='structure'>
       <div className='structure__category'>
@@ -56,10 +59,28 @@ const ProductDescription = () => {
             </span>
           </div>
           <div className='structure__product__product-detail__fourth'>
-            <button type='submit' className='structure__product__product-detail__fourth__button'>
-              <i className='bi bi-bag' />
-              <span className='structure__product__product-detail__fourth__button__text'> Purchase </span>
-            </button>
+            {
+              contextAuth.isAuth === false
+                ? (
+                  <>
+                    <button type='submit' className='structure__product__product-detail__fourth__button-purchase--not-able'>
+                      <i className='bi bi-bag' />
+                      <span className='structure__product__product-detail__fourth__button-purchase__text'> Purchase </span>
+                    </button>
+                    <Link to='/login'>
+                      <button type='submit' className='structure__product__product-detail__fourth__button-login'>
+                        <span className='structure__product__product-detail__fourth__button-login__text'> Login for purchase! </span>
+                      </button>
+                    </Link>
+                  </>
+                  )
+                : (
+                  <button type='submit' className='structure__product__product-detail__fourth__button-purchase'>
+                    <i className='bi bi-bag' />
+                    <span className='structure__product__product-detail__fourth__button-purchase__text'> Purchase </span>
+                  </button>
+                  )
+            }
           </div>
         </div>
       </div>

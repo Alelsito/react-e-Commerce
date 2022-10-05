@@ -1,8 +1,20 @@
 // _styles.scss
 @import '@/styles/styles';
 
+%button {
+    min-height: 45px;
+    border-radius: 10px;
+    border-style: hidden;
+    @extend %display-flex-align-items-center-justify-content-center;
+}
+
+%button-text {
+    font-size: 17px;
+    font-weight: 600;
+}
+
 .structure {
-    margin: 0px 15% 20px;
+    margin: 30px 15% 20px;
     @extend %display-flex-flex-direction-column;
     gap: 10px;
 
@@ -110,25 +122,56 @@
             &__fourth {
                 margin-top: 20px;
                 min-width: 100%;
+                max-height: auto;
+                @extend %display-flex;
+                gap: 5%;
 
-                &__button {
+                &__button-purchase {
                     min-width: 100%;
-                    min-height: 50px;
                     background-color: $Highlight;
-                    border-radius: 10px;
-                    border-style: hidden;
-                    @extend %display-flex-align-items-center-justify-content-center;
+                    @extend %button;
                     gap: 7px;
 
                     .bi-bag {
                         font-size: 20px;
-                        color: white;
+                        color: $Bright;
                     }
 
                     &__text {
-                        font-size: 17px;
-                        font-weight: 600;
+                        @extend %button-text;
                         color: $Bright;
+                    }
+
+                    &--not-able {
+                        min-width: 55%;
+                        background-color: $Highlight;
+                        @extend %button;
+                        opacity: 0.6;
+                        gap: 7px;
+    
+                        .bi-bag {
+                            font-size: 20px;
+                            color: white;
+                        }
+    
+                        &__text {
+                            @extend %button-text;
+                            color: $Bright;
+                        }
+                    }
+                }
+
+                &__button-login {
+                    min-width: 40%;
+                    background-color: transparent !important;
+                    border: 2px solid $Primary !important;
+                    padding: 0px 15px 0px;
+                    @extend %button;
+                    @extend %display-flex-align-items-center-justify-content-center;
+
+                    &__text {
+                        @extend %button-text;
+                        color: $Primary;
                     }
                 }
 
