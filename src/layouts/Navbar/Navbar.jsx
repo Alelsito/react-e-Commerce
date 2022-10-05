@@ -22,6 +22,7 @@ import './Navbar.scss'
 
 const Navbar = () => {
   const contextAuth = useAuthContext()
+  const userInfo = contextAuth.userInfo
   const contextProducts = useProductsContext()
   const location = useLocation()
   const navigate = useNavigate()
@@ -105,7 +106,14 @@ const Navbar = () => {
                 )
               : (
                 <>
-                  <button className='nav-second-side__buttons__user-name'> Hola "Nombre del usuario" </button>
+                  <button className='nav-second-side__buttons__user-name'>
+                    Hola
+                    "{
+                      userInfo !== null
+                        ? (`${userInfo?.first_name} ${userInfo?.last_name}`)
+                        : ('...')
+                    }"
+                  </button>
                 </>
                 )
           }
