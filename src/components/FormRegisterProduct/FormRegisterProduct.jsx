@@ -1,13 +1,79 @@
-import React from 'react'
+// React
+import { useState } from 'react'
+
+// React router dom
+import { useNavigate } from 'react-router-dom'
+
+// Hooks
+import useForm from '../../hooks/useForm'
+
+// Services
+import { postCreateItem } from '../../services/axiosMethods'
 
 // Image
 import JackImage from '../../assets/Jack.webp'
 
 const FormRegisterProduct = () => {
+  const navigate = useNavigate()
+  const [submitError, setSubmitError] = useState(false)
+  const [errorMessage, setErrorMessage] = useState(null)
+
+  const noError = () => {
+    setSubmitError(false)
+    setErrorMessage(null)
+  }
+
+  const showError = (error) => {
+    setSubmitError(true)
+    setErrorMessage(error)
+  }
+
+  const sendData = async (data) => {
+    try {
+      const result = await postCreateItem(data)
+      if (result.status === 201) {
+        noError()
+        navigate('/')
+        console.log(result.data)
+      }
+    } catch (error) {
+      showError(error.message)
+    }
+  }
+
+  const { input, handleInputChange, handleSubmit } = useForm(sendData, {
+    product_name: '',
+    description: '',
+    price: '',
+    category: '',
+    brand: '',
+    sku: 'e9cbfac1-301a-42c3-b94a-711a39dc7ed1',
+    image: ''
+  })
+
   return (
     <>
       <div className='background' />
       <article className='form--register-product'>
+        {
+          submitError
+            ? (
+              <div className='error'>
+                <div className='error__container'>
+                  <div className='error__container__first'>
+                    <i className='bi bi-exclamation-circle' />
+                    <p> {errorMessage} -- Check it out! </p>
+                  </div>
+                  <div className='error__container__second'>
+                    <i className='bi bi-x-circle' onClick={noError} />
+                  </div>
+                </div>
+              </div>
+              )
+            : (
+              <div className='error--hidden' />
+              )
+        }
         <div className='form__left-side--register-product'>
           <div className='form__left-side__structure'>
             <img className='form__left-side__image--register-product' src={JackImage} alt='logo' />
@@ -22,15 +88,15 @@ const FormRegisterProduct = () => {
         <div className='form__right-side'>
           <div className='form__right-side__structure'>
             <p className='form__right-side__title'> Register your product </p>
-            <form className='form__right-side__inputs'>
+            <form className='form__right-side__inputs' onSubmit={handleSubmit}>
               <input
                 type='text'
                 className='form__right-side__inputs__input'
                 placeholder='Product name'
                 id='product_name'
                 name='product_name'
-                value=''
-                onChange={() => {}}
+                value={input.product_name}
+                onChange={handleInputChange}
               />
               <i className='bi bi-box-seam' />
               <input
@@ -39,8 +105,8 @@ const FormRegisterProduct = () => {
                 placeholder='Description'
                 id='description'
                 name='description'
-                value=''
-                onChange={() => {}}
+                value={input.description}
+                onChange={handleInputChange}
               />
               <i className='bi bi-card-text bi-card-text-2' />
               <input
@@ -50,16 +116,16 @@ const FormRegisterProduct = () => {
                 placeholder='Price'
                 id='price'
                 name='price'
-                value=''
-                onChange={() => {}}
+                value={input.price}
+                onChange={handleInputChange}
               />
               <i className='bi bi-currency-dollar' />
               <select
                 className='form__right-side__inputs__input'
                 id='category'
                 name='category'
-                value=''
-                onChange={() => {}}
+                value={input.category}
+                onChange={handleInputChange}
               >
                 <option hidden value=''> Category </option>
                 <option value='Books'> Books </option>
@@ -92,8 +158,8 @@ const FormRegisterProduct = () => {
                 placeholder='Brand'
                 id='brand'
                 name='brand'
-                value=''
-                onChange={() => {}}
+                value={input.brand}
+                onChange={handleInputChange}
               />
               <i className='bi bi-c-circle' />
               <input
@@ -102,8 +168,8 @@ const FormRegisterProduct = () => {
                 placeholder='Url Image'
                 id='image'
                 name='image'
-                value=''
-                onChange={() => {}}
+                value={input.image}
+                onChange={handleInputChange}
               />
               <i className='bi bi-image' />
               <button className='form__right-side__inputs__button-principal--register-product' type='submit'> Register </button>

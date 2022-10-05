@@ -20,9 +20,19 @@ const getSpecificUser = (id) => {
   return result
 }
 
+const postCreateItem = (data) => {
+  const token = window.localStorage.getItem('token')
+  const config = {
+    headers: { Authorization: `JWT ${token}` }
+  }
+  const result = axios.post(`${BASE_URL}/item`, data, config)
+  return result
+}
+
 export {
   getAllItems,
   postSignup,
   postLogin,
-  getSpecificUser
+  getSpecificUser,
+  postCreateItem
 }

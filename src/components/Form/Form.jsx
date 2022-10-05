@@ -45,7 +45,6 @@ const Form = () => {
         navigate('/login')
       }
     } catch (error) {
-      submitError === false &&
       showError(error.message)
     }
   }
@@ -59,7 +58,6 @@ const Form = () => {
         navigate('/')
       }
     } catch (error) {
-      submitError === false &&
       showError(error.message)
     }
   }
