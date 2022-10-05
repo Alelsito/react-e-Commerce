@@ -2,7 +2,7 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 
 // React router dom
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 // Jwt decode
 // eslint-disable-next-line camelcase
@@ -18,6 +18,7 @@ function AuthProvider (props) {
   const [userDecoded, setUserDecoded] = useState(null)
   const [userInfo, setUserInfo] = useState(null)
   const location = useLocation()
+  const navigate = useNavigate()
 
   const loginUser = (token) => {
     window.localStorage.setItem('token', token)
@@ -25,6 +26,7 @@ function AuthProvider (props) {
   }
 
   const logout = () => {
+    navigate('/')
     window.localStorage.removeItem('token')
     setIsAuth(false)
     setUserDecoded(null)
