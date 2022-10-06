@@ -13,6 +13,9 @@ import { postCreateItem } from '../../services/axiosMethods'
 // Image
 import JackImage from '../../assets/Jack.webp'
 
+// Styles
+import '../FormSignUp/Form.scss'
+
 const FormRegisterProduct = () => {
   const navigate = useNavigate()
   const [submitError, setSubmitError] = useState(false)
@@ -99,7 +102,7 @@ const FormRegisterProduct = () => {
           <div className='form__left-side__structure'>
             <img className='form__left-side__image--register-product' src={JackImage} alt='logo' />
             <div className='form__left-side__text--title'> "ADMIN" </div>
-            <div className='form__left-side__text--subtitle--register-product'> just because they cannot touch it, <br /> doesn't mean they don't want it </div>
+            <div className='form__left-side__text--subtitle'> just because they cannot touch it, <br /> doesn't mean they don't want it </div>
             <div className='form__left-side__circle'>
               <div className='form__left-side__circle--big--register-product' />
               <div className='form__left-side__circle--small' />
