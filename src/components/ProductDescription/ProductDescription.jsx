@@ -16,7 +16,7 @@ const ProductDescription = () => {
   const contextAuth = useAuthContext()
   const selectedProduct = contextProducts.selectedProduct
   return (
-    <section className='structure'>
+    <article className='structure'>
       <div className='structure__category'>
         <p className='structure__category__text'>
           Category:
@@ -84,7 +84,7 @@ const ProductDescription = () => {
           </div>
         </div>
       </div>
-    </section>
+    </article>
   )
 }
 

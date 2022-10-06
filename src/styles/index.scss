@@ -21,6 +21,20 @@ body {
     @extend %initial-settings;
 }
 
+// Scroll Body Bar
+body::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+body::-webkit-scrollbar-track {
+    background: $Light-Text;
+  }
+  
+body::-webkit-scrollbar-thumb {
+    background-color: $Primary;
+    border-radius: 20px;
+}
+
 #root {
     @extend %initial-settings;
 }

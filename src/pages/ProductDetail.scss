@@ -1,0 +1,21 @@
+// _styles.scss
+@import '@/styles/styles';
+
+main {
+    max-width: 100%;
+    height: auto;
+    @extend %display-flex-flex-direction-column;
+}
+
+.first {
+    @extend %display-flex-justify-content-center;
+
+    &__cart {
+        min-width: 29%;
+    }
+}
+
+.second {
+    max-width: 100%;
+    padding: 30px 15% 20px;
+}

@@ -2,7 +2,7 @@
 @import '@/styles/styles';
 
 .related {
-    margin: 0px 15% 30px;
+    margin-bottom: 30px;
     @extend %display-flex-flex-direction-column;
 
     &__bar {
