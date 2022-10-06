@@ -11,6 +11,15 @@
 
 // Mixin
 
+@mixin alert {
+    position: absolute;
+    min-width: 1220px;
+    min-height: 48px;
+    border-radius: 7px 7px 0px 0px;
+    transition: opacity .50s;
+    opacity: 1;
+}
+
 @mixin form {
     position: relative;
     min-width: 1220px;
@@ -53,14 +62,18 @@
     background-color: $Dark;
 }
 
-.error {
-    position: absolute;
-    min-width: 1220px;
-    min-height: 48px;
-    background-color: $Error;
-    border-radius: 7px 7px 0px 0px;
-    transition: opacity .50s;
-    opacity: 1;
+.alert {
+    @include alert;
+
+    &--error {
+        @include alert;
+        background-color: $Error;
+    }
+
+    &--success {
+        @include alert;
+        background-color: $Succes;
+    }
 
     &--hidden {
         opacity: 0;

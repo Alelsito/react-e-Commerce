@@ -17,6 +17,7 @@ const FormRegisterProduct = () => {
   const navigate = useNavigate()
   const [submitError, setSubmitError] = useState(false)
   const [errorMessage, setErrorMessage] = useState(null)
+  const [submittedWell, setSubmittedWell] = useState(false)
 
   const noError = () => {
     setSubmitError(false)
@@ -27,14 +28,18 @@ const FormRegisterProduct = () => {
     setSubmitError(true)
     setErrorMessage(error)
   }
+  const submittedCorrectly = () => {
+    setSubmittedWell(false)
+    navigate('/')
+  }
 
   const sendData = async (data) => {
     try {
       const result = await postCreateItem(data)
       if (result.status === 201) {
         noError()
-        navigate('/')
-        console.log(result.data)
+        setSubmittedWell(true)
+        setTimeout(submittedCorrectly, 3500)
       }
     } catch (error) {
       showError(error.message)
@@ -56,22 +61,38 @@ const FormRegisterProduct = () => {
       <div className='background' />
       <article className='form--register-product'>
         {
+          submittedWell
+            ? (
+              <div className='alert--success'>
+                <div className='alert__container'>
+                  <div className='alert__container__first'>
+                    <i className='bi bi-exclamation-circle' />
+                    <p> Your product has been successfully created! </p>
+                  </div>
+                </div>
+              </div>
+              )
+            : (
+              <div className='alert--hidden' />
+              )
+        }
+        {
           submitError
             ? (
-              <div className='error'>
-                <div className='error__container'>
-                  <div className='error__container__first'>
+              <div className='alert--error'>
+                <div className='alert__container'>
+                  <div className='alert__container__first'>
                     <i className='bi bi-exclamation-circle' />
                     <p> {errorMessage} -- Check it out! </p>
                   </div>
-                  <div className='error__container__second'>
+                  <div className='alert__container__second'>
                     <i className='bi bi-x-circle' onClick={noError} />
                   </div>
                 </div>
               </div>
               )
             : (
-              <div className='error--hidden' />
+              <div className='alert--hidden' />
               )
         }
         <div className='form__left-side--register-product'>

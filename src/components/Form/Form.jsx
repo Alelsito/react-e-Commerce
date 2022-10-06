@@ -90,20 +90,20 @@ const Form = () => {
         {
           submitError
             ? (
-              <div className='error'>
-                <div className='error__container'>
-                  <div className='error__container__first'>
+              <div className='alert--error'>
+                <div className='alert__container'>
+                  <div className='alert__container__first'>
                     <i className='bi bi-exclamation-circle' />
                     <p> {errorMessage} -- Check it out! </p>
                   </div>
-                  <div className='error__container__second'>
+                  <div className='alert__container__second'>
                     <i className='bi bi-x-circle' onClick={noError} />
                   </div>
                 </div>
               </div>
               )
             : (
-              <div className='error--hidden' />
+              <div className='alert--hidden' />
               )
         }
         {
