@@ -1,24 +1,21 @@
-import React from 'react'
-
 // React router dom
 import { Link, useLocation } from 'react-router-dom'
 
 // Context
-import { useProductsContext } from '../../context/ProductsContext'
+import { useProductsContext } from '@/context/ProductsContext'
 
-// ScrollUp
+// Utils
 import scrollUP from '@/utils/scrollUp'
 
-// Styles
+// Style
 import './Product.scss'
 
-// imageNotFound
-import imageNotFound from '../../assets/image-not-found.jpg'
+// Image
+import imageNotFound from '@/assets/image-not-found.jpg'
 
 const Product = ({ product }) => {
   const context = useProductsContext()
   const location = useLocation()
-
   return (
     <>
       {

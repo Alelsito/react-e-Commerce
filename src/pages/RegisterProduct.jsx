@@ -1,4 +1,4 @@
-import React from 'react'
+// Component
 import FormRegisterProduct from '../components/FormRegisterProduct'
 
 const RegisterProduct = () => {

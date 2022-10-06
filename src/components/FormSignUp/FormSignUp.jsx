@@ -4,13 +4,13 @@ import { useState } from 'react'
 // React router dom
 import { Link, useNavigate } from 'react-router-dom'
 
-// Hooks
-import useForm from '../../hooks/useForm'
+// Custom Hook
+import useForm from '@/hooks/useForm'
 
 // Services
-import { postSignup } from '../../services/axiosMethods'
+import { postSignup } from '@/services/axiosMethods'
 
-// Styles
+// Style
 import './Form.scss'
 
 // Image

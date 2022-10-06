@@ -1,9 +1,7 @@
-import React from 'react'
-
-// Layouts
+// Layout
 import About from '../layouts/About'
 
-// Components
+// Component
 import Products from '../components/Products'
 
 const Home = () => {

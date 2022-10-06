@@ -4,14 +4,14 @@ import { useState } from 'react'
 // React router dom
 import { useNavigate } from 'react-router-dom'
 
-// Hooks
-import useForm from '../../hooks/useForm'
+// Custom Hook
+import useForm from '@/hooks/useForm'
 
 // Services
-import { postCreateItem } from '../../services/axiosMethods'
+import { postCreateItem } from '@/services/axiosMethods'
 
 // Image
-import JackImage from '../../assets/Jack.webp'
+import JackImage from '@/assets/Jack.webp'
 
 // Styles
 import '../FormSignUp/Form.scss'

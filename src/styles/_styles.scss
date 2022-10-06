@@ -1,5 +1,4 @@
 // Typography
-
 $Display-Large: 58px;
 $Display-Medium: 25px;
 $Logo: 25px;
@@ -9,7 +8,6 @@ $Label-large: 15px;
 $Label-Medium: 12px;
 
 // Colors
-
 $Primary: rgba(27, 75, 102, 1);
 $Primary-Tint: rgba(99, 149, 153, 1);
 $Error: rgb(210, 47, 47);
@@ -26,7 +24,6 @@ $Input: rgb(129 121 121);
 $Tranparent: rgba(222, 222, 222, 0.7);
 
 // Extends
-
 %display-flex {
     display: flex;
 }

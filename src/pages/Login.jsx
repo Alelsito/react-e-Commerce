@@ -1,6 +1,4 @@
-import React from 'react'
-
-// Components
+// Component
 import FormLogin from '../components/FormLogin'
 
 const Login = () => {

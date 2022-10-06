@@ -1,15 +1,14 @@
-import React from 'react'
+// Context
+import { useProductsContext } from '@/context/ProductsContext'
 
-// Styles
-import './RelatedProducts.scss'
-
-// Components
+// Component
 import Product from '../Product'
-import { useProductsContext } from '../../context/ProductsContext'
+
+// Style
+import './RelatedProducts.scss'
 
 const RelatedProducts = () => {
   const context = useProductsContext()
-
   const selectedProduct = context.selectedProduct
 
   const filterByCategory = context.data.filter((product) => (
@@ -30,7 +29,7 @@ const RelatedProducts = () => {
         {
           filterByCategory.map((product, index) => (
             (product?._id !== selectedProduct?._id) &&
-            index < 17 && <Product key={index} product={product} />
+            index < 16 && <Product key={index} product={product} />
           ))
         }
       </article>

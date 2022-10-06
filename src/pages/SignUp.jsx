@@ -1,6 +1,4 @@
-import React from 'react'
-
-// Components
+// Component
 import FormSignUp from '../components/FormSignUp'
 
 const SignUp = () => {

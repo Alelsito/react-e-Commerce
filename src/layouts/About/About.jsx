@@ -1,5 +1,3 @@
-import React from 'react'
-
 // Style
 import './About.scss'
 

@@ -5,19 +5,19 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 // Context
-import { useAuthContext } from '../../context/AuthContext'
+import { useAuthContext } from '@/context/AuthContext'
 
-// Hooks
-import useForm from '../../hooks/useForm'
+// Custom Hook
+import useForm from '@/hooks/useForm'
 
 // Services
-import { postLogin } from '../../services/axiosMethods'
+import { postLogin } from '@/services/axiosMethods'
 
-// Styles
+// Style
 import '../FormSignUp/Form.scss'
 
 // Image
-import logoLogin from '../../assets/Zero-Logo.png'
+import logoLogin from '@/assets/Zero-Logo.png'
 
 const FormLogin = () => {
   const context = useAuthContext()

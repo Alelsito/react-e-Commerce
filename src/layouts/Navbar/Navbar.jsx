@@ -1,19 +1,17 @@
-import React from 'react'
-
-// React router dom (link, Navigate, useLocation)
+// React router dom
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 
-// Context
-import { useAuthContext } from '../../context/AuthContext'
-import { useProductsContext } from '../../context/ProductsContext'
+// Contexts
+import { useAuthContext } from '@/context/AuthContext'
+import { useProductsContext } from '@/context/ProductsContext'
 
-// UseForm
-import useForm from '../../hooks/useForm'
+// Custom Hooks
+import useForm from '@/hooks/useForm'
 
-// ScrollUp
+// Utils
 import scrollUP from '@/utils/scrollUp'
 
-// Logo
+// Logos
 import logoBugi from '@/assets/Bugis-Logo.png'
 import logoZero from '@/assets/Zero-Logo.png'
 import jackLogo from '@/assets/Jack-Logo.png'

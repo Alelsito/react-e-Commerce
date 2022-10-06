@@ -1,15 +1,15 @@
 // React router dom
 import { Link } from 'react-router-dom'
 
-// Context
-import { useProductsContext } from '../../context/ProductsContext'
-import { useAuthContext } from '../../context/AuthContext'
+// Contexts
+import { useProductsContext } from '@/context/ProductsContext'
+import { useAuthContext } from '@/context/AuthContext'
 
-// Styles
+// Style
 import './ProductDescription.scss'
 
-// imageNotFound
-import imageNotFound from '../../assets/image-not-found.jpg'
+// Image
+import imageNotFound from '@/assets/image-not-found.jpg'
 
 const ProductDescription = () => {
   const contextProducts = useProductsContext()
