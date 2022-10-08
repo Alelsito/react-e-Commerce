@@ -1,6 +1,3 @@
-// React
-import { useState } from 'react'
-
 // Components
 import ProductDescription from '../components/ProductDescription'
 import RelatedProducts from '../components/RelatedProducts'
@@ -8,18 +5,18 @@ import Cart from '../components/Cart'
 
 // Style
 import './ProductDetail.scss'
+import { useCartContext } from '../context/CartContext'
 
 const ProductDetail = () => {
-  // eslint-disable-next-line no-unused-vars
-  const [second, setSecond] = useState(true)
+  const contextCart = useCartContext()
 
   const styles = {
     description: {
-      maxWidth: second ? '60%' : '100%',
-      padding: second ? '30px 5% 0px' : '30px 15% 0px'
+      maxWidth: contextCart.cart ? '60%' : '100%',
+      padding: contextCart.cart ? '30px 5% 0px' : '30px 15% 0px'
     },
     cart: {
-      display: second ? 'block' : 'none'
+      display: contextCart.cart ? 'block' : 'none'
     }
   }
 

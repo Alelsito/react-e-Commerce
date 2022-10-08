@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 // Contexts
 import { useProductsContext } from '@/context/ProductsContext'
 import { useAuthContext } from '@/context/AuthContext'
+import { useCartContext } from '@/context/CartContext'
 
 // Style
 import './ProductDescription.scss'
@@ -15,6 +16,9 @@ const ProductDescription = () => {
   const contextProducts = useProductsContext()
   const contextAuth = useAuthContext()
   const selectedProduct = contextProducts.selectedProduct
+  const contextCart = useCartContext()
+  const handleCartTrue = contextCart.cartIsTrue
+
   return (
     <article className='structure'>
       <div className='structure__category'>
@@ -63,19 +67,19 @@ const ProductDescription = () => {
               contextAuth.isAuth === false
                 ? (
                   <>
-                    <button type='submit' className='structure__product__product-detail__fourth__button-purchase--not-able'>
+                    <button className='structure__product__product-detail__fourth__button-purchase--not-able'>
                       <i className='bi bi-bag' />
                       <span className='structure__product__product-detail__fourth__button-purchase__text'> Purchase </span>
                     </button>
                     <Link to='/login'>
-                      <button type='submit' className='structure__product__product-detail__fourth__button-login'>
+                      <button className='structure__product__product-detail__fourth__button-login'>
                         <span className='structure__product__product-detail__fourth__button-login__text'> Login for purchase! </span>
                       </button>
                     </Link>
                   </>
                   )
                 : (
-                  <button type='submit' className='structure__product__product-detail__fourth__button-purchase'>
+                  <button className='structure__product__product-detail__fourth__button-purchase' onClick={handleCartTrue}>
                     <i className='bi bi-bag' />
                     <span className='structure__product__product-detail__fourth__button-purchase__text'> Purchase </span>
                   </button>

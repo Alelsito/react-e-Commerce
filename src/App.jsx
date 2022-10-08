@@ -1,6 +1,7 @@
 // Context
 import { AuthProvider } from './context/AuthContext'
 import { ProductsProvider } from './context/ProductsContext'
+import { CartProvider } from './context/CartContext'
 
 // Router {useLocation}
 import { useLocation } from 'react-router-dom'
@@ -17,13 +18,16 @@ function App () {
   return (
     <AuthProvider>
       <ProductsProvider>
-        <Navbar />
-        <Router />
-        {
-        location.pathname === '/login' || location.pathname === '/signup' || location.pathname === '/register/product'
-          ? <></>
-          : <Footer />
-      }
+        <CartProvider>
+          <Navbar />
+          <Router />
+          {
+            location.pathname === '/login' || location.pathname === '/signup' || location.pathname === '/register/product'
+              ? <></>
+              : <Footer />
+          }
+        </CartProvider>
+
       </ProductsProvider>
     </AuthProvider>
   )
