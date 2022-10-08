@@ -1,17 +1,29 @@
 import { createContext, useContext, useState } from 'react'
 
+// ProductsContext
+import { useProductsContext } from './ProductsContext'
+
 const CartContext = createContext()
 
 function CartProvider (props) {
   const [cart, setCart] = useState(false)
+  const [cartItems, setCartItems] = useState([])
+  const contextProducts = useProductsContext()
+  const selectedProduct = contextProducts.selectedProduct
 
   const cartIsTrue = () => {
     setCart(true)
   }
 
+  const addItem = () => {
+    setCartItems([...cartItems, selectedProduct])
+  }
+
   const value = {
     cart,
-    cartIsTrue
+    cartItems,
+    cartIsTrue,
+    addItem
   }
 
   return (

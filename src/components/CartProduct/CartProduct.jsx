@@ -1,15 +1,30 @@
 import React from 'react'
 
-const CartProduct = () => {
+// Image
+import imageNotFound from '@/assets/image-not-found.jpg'
+
+const CartProduct = ({ product }) => {
   return (
     <>
       <div className='container__products__product'>
         <div className='container__products__product__first'>
-          <img src='https://www.gaiadesign.com.mx/media/catalog/product/cache/28cb47c806b746a91bc25b380c9673fa/s/o/sofa_cama_sabina_rosa_still1_v2.jpg' alt='image-product' />
+          <img
+            src={
+                Object.prototype.hasOwnProperty.call(product, 'image')
+                  ? `${product.image}`
+                  : `${imageNotFound}`
+                }
+            alt={product.product_name}
+            onError={(e) => {
+              if (e.target.src !== `${imageNotFound}`) {
+                e.target.src = `${imageNotFound}`
+              }
+            }}
+          />
         </div>
         <div className='container__products__product__second'>
-          <p className='container__products__product__second__product-name'> Product_name</p>
-          <p className='container__products__product__second__category'> Category: </p>
+          <p className='container__products__product__second__product-name'> {product.product_name} </p>
+          <p className='container__products__product__second__category'> Category: {product.category} </p>
           <div className='container__products__product__second__quantity'>
             <div className='container__products__product__second__quantity__minus'>
               <i className='fa-solid fa-minus' />
@@ -22,7 +37,7 @@ const CartProduct = () => {
         </div>
         <div className='container__products__product__third'>
           <i className='fa-solid fa-xmark' />
-          <p className='container__products__product__third__total'> $225 </p>
+          <p className='container__products__product__third__total'> ${product.price} </p>
         </div>
       </div>
       <div className='container__products__divider' />

@@ -1,5 +1,8 @@
 import React from 'react'
 
+// Context
+import { useCartContext } from '@/context/CartContext'
+
 // Component
 import CartProduct from '../CartProduct'
 
@@ -7,6 +10,7 @@ import CartProduct from '../CartProduct'
 import './Cart.scss'
 
 const Cart = () => {
+  const contextCart = useCartContext()
   return (
     <div className='container'>
       <div className='container__close'>
@@ -14,11 +18,13 @@ const Cart = () => {
         <p> Close </p>
       </div>
       <div className='container__products'>
-        <CartProduct />
-        <CartProduct />
-        <CartProduct />
-        <CartProduct />
-        <CartProduct />
+        {
+          contextCart.cartItems.length !== 0
+            ? contextCart.cartItems.map((product, index) => (
+              <CartProduct key={index} product={product} />
+            ))
+            : (<></>)
+        }
       </div>
       <div className='container__sticky'>
         <div className='container__total'>

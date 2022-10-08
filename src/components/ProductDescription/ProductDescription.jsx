@@ -18,6 +18,7 @@ const ProductDescription = () => {
   const selectedProduct = contextProducts.selectedProduct
   const contextCart = useCartContext()
   const handleCartTrue = contextCart.cartIsTrue
+  const addItem = contextCart.addItem
 
   return (
     <article className='structure'>
@@ -79,7 +80,13 @@ const ProductDescription = () => {
                   </>
                   )
                 : (
-                  <button className='structure__product__product-detail__fourth__button-purchase' onClick={handleCartTrue}>
+                  <button
+                    className='structure__product__product-detail__fourth__button-purchase'
+                    onClick={() => {
+                      handleCartTrue()
+                      addItem()
+                    }}
+                  >
                     <i className='bi bi-bag' />
                     <span className='structure__product__product-detail__fourth__button-purchase__text'> Purchase </span>
                   </button>
