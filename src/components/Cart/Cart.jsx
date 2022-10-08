@@ -29,7 +29,7 @@ const Cart = () => {
       <div className='container__sticky'>
         <div className='container__total'>
           <p className='container__total__text'> Total </p>
-          <p className='container__total__number'> $112 </p>
+          <p className='container__total__number'> ${contextCart.total} </p>
         </div>
         <button className='container__order'> Place Order </button>
       </div>
