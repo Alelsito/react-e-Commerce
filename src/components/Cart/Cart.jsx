@@ -21,7 +21,7 @@ const Cart = () => {
         {
           contextCart.cartItems.length !== 0
             ? contextCart.cartItems.map((product, index) => (
-              <CartProduct key={index} product={product} />
+              <CartProduct key={index} index={index} product={product} />
             ))
             : (<></>)
         }

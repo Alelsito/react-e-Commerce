@@ -1,9 +1,13 @@
 import React from 'react'
 
+// Context
+import { useCartContext } from '@/context/CartContext'
+
 // Image
 import imageNotFound from '@/assets/image-not-found.jpg'
 
-const CartProduct = ({ product }) => {
+const CartProduct = ({ index, product }) => {
+  const contextCart = useCartContext()
   return (
     <>
       <div className='container__products__product'>
@@ -36,7 +40,10 @@ const CartProduct = ({ product }) => {
           </div>
         </div>
         <div className='container__products__product__third'>
-          <i className='fa-solid fa-xmark' />
+          <i
+            className='fa-solid fa-xmark'
+            onClick={() => contextCart.deleteItem(index)}
+          />
           <p className='container__products__product__third__total'> ${product.price} </p>
         </div>
       </div>

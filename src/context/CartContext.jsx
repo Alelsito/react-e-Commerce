@@ -3,6 +3,9 @@ import { createContext, useContext, useState } from 'react'
 // ProductsContext
 import { useProductsContext } from './ProductsContext'
 
+// Helpers
+import replaceNoNumber from '../helpers/replaceNoNumber'
+
 const CartContext = createContext()
 
 function CartProvider (props) {
@@ -18,7 +21,13 @@ function CartProvider (props) {
 
   const addItem = () => {
     setCartItems([...cartItems, selectedProduct])
-    setTotal(total + selectedProduct.price)
+    setTotal(total + replaceNoNumber(selectedProduct.price))
+  }
+
+  const deleteItem = (index) => {
+    const itemDeleted = cartItems.splice(index, 1)
+    setTotal(total - replaceNoNumber(itemDeleted[0].price))
+    setCartItems([...cartItems])
   }
 
   const value = {
@@ -26,7 +35,8 @@ function CartProvider (props) {
     cartItems,
     total,
     cartIsTrue,
-    addItem
+    addItem,
+    deleteItem
   }
 
   return (
