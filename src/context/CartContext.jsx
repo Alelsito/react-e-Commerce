@@ -1,5 +1,5 @@
 // React
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useState, useEffect } from 'react'
 
 // Helpers
 import replaceNoNumber from '../helpers/replaceNoNumber'
@@ -65,22 +65,27 @@ function CartProvider (props) {
     purchasedItemsArray.sort((a, b) => a.product_name.localeCompare(b.product_name))
     setPurchasedItems([...purchasedItems, ...purchasedItemsArray])
 
-    const stringifyArray = purchasedItemsArray.map(p => {
-      return JSON.stringify(p)
-    })
-    console.log(stringifyArray)
-
-    const parseArray = stringifyArray.map(p => {
-      return JSON.parse(p)
-    })
-    console.log(parseArray)
-
-    window.localStorage.setItem('purchasedItems', stringifyArray)
-
     setCartItems([])
     setDuplicatedCartItems([])
     setTotal(0)
   }
+
+  useEffect(() => {
+    const getPurchasedItemsFromLocalStorage = window.localStorage.getItem('purchasedItems')
+    if (purchasedItems.length !== 0) {
+      const stringifyPurchasedItems = purchasedItems.map(p => {
+        return JSON.stringify(p)
+      })
+      window.localStorage.setItem('purchasedItems', stringifyPurchasedItems)
+    } else if (purchasedItems.length === 0 && getPurchasedItemsFromLocalStorage !== null) {
+      const preparedPurchasedItemsForSplit = getPurchasedItemsFromLocalStorage.replace(/},/g, '}splitRightHere')
+      const splitPurchasedItems = preparedPurchasedItemsForSplit.split('splitRightHere')
+      const parseLocalStoragePurchasedItems = splitPurchasedItems.map(p => {
+        return JSON.parse(p)
+      })
+      setPurchasedItems([...purchasedItems, ...parseLocalStoragePurchasedItems])
+    }
+  }, [purchasedItems])
 
   const value = {
     cart,
