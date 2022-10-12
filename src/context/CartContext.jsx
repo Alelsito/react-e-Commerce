@@ -64,6 +64,19 @@ function CartProvider (props) {
     const purchasedItemsArray = cartItems.concat(duplicatedCartItems)
     purchasedItemsArray.sort((a, b) => a.product_name.localeCompare(b.product_name))
     setPurchasedItems([...purchasedItems, ...purchasedItemsArray])
+
+    const stringifyArray = purchasedItemsArray.map(p => {
+      return JSON.stringify(p)
+    })
+    console.log(stringifyArray)
+
+    const parseArray = stringifyArray.map(p => {
+      return JSON.parse(p)
+    })
+    console.log(parseArray)
+
+    window.localStorage.setItem('purchasedItems', stringifyArray)
+
     setCartItems([])
     setDuplicatedCartItems([])
     setTotal(0)
