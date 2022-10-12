@@ -21,6 +21,12 @@ function CartProvider (props) {
     setCart(false)
   }
 
+  useEffect(() => {
+    if (cartItems.length === 0) {
+      cartIsFalse()
+    }
+  }, [cartItems])
+
   const addItem = (product) => {
     const filter = cartItems.filter(p => (
       product._id === p._id
@@ -91,7 +97,6 @@ function CartProvider (props) {
     cart,
     cartItems,
     duplicatedCartItems,
-    setDuplicatedCartItems,
     total,
     cartIsTrue,
     cartIsFalse,

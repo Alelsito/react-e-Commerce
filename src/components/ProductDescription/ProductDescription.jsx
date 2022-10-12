@@ -17,14 +17,18 @@ const ProductDescription = () => {
   const selectedProduct = contextProducts.selectedProduct
   const contextAuth = useAuthContext()
   const contextCart = useCartContext()
+  const cartItems = contextCart.cartItems
   const handleCartTrue = contextCart.cartIsTrue
   const addItem = contextCart.addItem
-
   const cart = contextCart.cart
 
   const styles = {
     buttonPurchase: {
-      minWidth: cart ? '100%' : '60%'
+      minWidth: cart
+        ? '100%'
+        : cartItems.length !== 0
+          ? '60%'
+          : '100%'
     },
     buttonCart: {
       display: cart ? 'none' : 'flex'
@@ -103,14 +107,20 @@ const ProductDescription = () => {
                       <i className='bi bi-bag' />
                       <span className='structure__product__product-detail__fourth__button-purchase__text'> Purchase </span>
                     </button>
-                    <button
-                      className='structure__product__product-detail__fourth__button-cart'
-                      style={styles.buttonCart}
-                      onClick={handleCartTrue}
-                    >
-                      <i className='fa-solid fa-cart-shopping' />
-                      <span className='structure__product__product-detail__fourth__button-purchase__text'> Show </span>
-                    </button>
+                    {
+                      cartItems.length !== 0 &&
+                        (
+                          <button
+                            className='structure__product__product-detail__fourth__button-cart'
+                            style={styles.buttonCart}
+                            onClick={handleCartTrue}
+                          >
+                            <i className='fa-solid fa-cart-shopping' />
+                            <span className='structure__product__product-detail__fourth__button-purchase__text'> Show </span>
+                          </button>
+                        )
+                    }
+
                   </>
                   )
             }
