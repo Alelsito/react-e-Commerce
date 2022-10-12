@@ -1,3 +1,6 @@
+// React Router Dom
+import { Link } from 'react-router-dom'
+
 // Context
 import { useCartContext } from '@/context/CartContext'
 
@@ -34,7 +37,9 @@ const Cart = () => {
         <button className='container__order'> Place Order </button>
       </div>
       <div className='container__continue-shopping'>
-        <p className='container__continue-shopping__link'> Continue Shopping </p>
+        <Link to='/'>
+          <p className='container__continue-shopping__link'> Continue Shopping </p>
+        </Link>
       </div>
     </div>
   )
