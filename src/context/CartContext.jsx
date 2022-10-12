@@ -10,6 +10,7 @@ function CartProvider (props) {
   const [cart, setCart] = useState(false)
   const [cartItems, setCartItems] = useState([])
   const [duplicatedCartItems, setDuplicatedCartItems] = useState([])
+  const [purchasedItems, setPurchasedItems] = useState([])
   const [total, setTotal] = useState(0)
 
   const cartIsTrue = () => {
@@ -59,6 +60,15 @@ function CartProvider (props) {
     setTotal(total - replaceNoNumber(itemDeleted[0].price))
   }
 
+  const placeOrder = () => {
+    const purchasedItemsArray = cartItems.concat(duplicatedCartItems)
+    purchasedItemsArray.sort((a, b) => a.product_name.localeCompare(b.product_name))
+    setPurchasedItems([...purchasedItems, ...purchasedItemsArray])
+    setCartItems([])
+    setDuplicatedCartItems([])
+    setTotal(0)
+  }
+
   const value = {
     cart,
     cartItems,
@@ -69,7 +79,8 @@ function CartProvider (props) {
     cartIsFalse,
     addItem,
     deleteItem,
-    deleteQuantityItem
+    deleteQuantityItem,
+    placeOrder
   }
 
   return (

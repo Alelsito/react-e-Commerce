@@ -13,6 +13,7 @@ import './Cart.scss'
 const Cart = () => {
   const contextCart = useCartContext()
   const handleCartFalse = contextCart.cartIsFalse
+  const handlePlaceOrder = contextCart.placeOrder
 
   return (
     <div className='container'>
@@ -34,7 +35,7 @@ const Cart = () => {
           <p className='container__total__text'> Total </p>
           <p className='container__total__number'> ${contextCart.total} </p>
         </div>
-        <button className='container__order'> Place Order </button>
+        <button className='container__order' onClick={handlePlaceOrder}> Place Order </button>
       </div>
       <div className='container__continue-shopping'>
         <Link to='/'>
