@@ -1,5 +1,3 @@
-import React from 'react'
-
 // Context
 import { useCartContext } from '@/context/CartContext'
 
@@ -11,6 +9,7 @@ import './Cart.scss'
 
 const Cart = () => {
   const contextCart = useCartContext()
+
   return (
     <div className='container'>
       <div className='container__close'>

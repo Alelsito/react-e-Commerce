@@ -14,8 +14,8 @@ import imageNotFound from '@/assets/image-not-found.jpg'
 
 const ProductDescription = () => {
   const contextProducts = useProductsContext()
-  const contextAuth = useAuthContext()
   const selectedProduct = contextProducts.selectedProduct
+  const contextAuth = useAuthContext()
   const contextCart = useCartContext()
   const handleCartTrue = contextCart.cartIsTrue
   const addItem = contextCart.addItem
@@ -84,7 +84,7 @@ const ProductDescription = () => {
                     className='structure__product__product-detail__fourth__button-purchase'
                     onClick={() => {
                       handleCartTrue()
-                      addItem()
+                      addItem(selectedProduct)
                     }}
                   >
                     <i className='bi bi-bag' />
