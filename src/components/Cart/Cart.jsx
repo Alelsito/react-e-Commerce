@@ -9,11 +9,12 @@ import './Cart.scss'
 
 const Cart = () => {
   const contextCart = useCartContext()
+  const handleCartFalse = contextCart.cartIsFalse
 
   return (
     <div className='container'>
       <div className='container__close'>
-        <i className='fa-solid fa-arrow-left' />
+        <i className='fa-solid fa-arrow-left' onClick={handleCartFalse} />
         <p> Close </p>
       </div>
       <div className='container__products'>

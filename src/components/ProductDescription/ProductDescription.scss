@@ -53,8 +53,8 @@
             position: relative;
             min-width: 40%;
             max-width: 50%;
-            min-height: 580px;
-            max-height: 580px;
+            min-height: 500px;
+            max-height: 500px;
             @extend %display-flex-flex-direction-column;
 
             &__first {
@@ -157,6 +157,18 @@
                             @extend %button-text;
                             color: $Bright;
                         }
+                    }
+                }
+
+                &__button-cart {
+                    min-width: 35%;
+                    background-color: $Primary-Tint;
+                    @extend %button;
+                    gap: 7px;
+
+                    .fa-cart-shopping {
+                        font-size: 17px;
+                        color: white;
                     }
                 }
 

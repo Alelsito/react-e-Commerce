@@ -16,6 +16,10 @@ function CartProvider (props) {
     setCart(true)
   }
 
+  const cartIsFalse = () => {
+    setCart(false)
+  }
+
   const addItem = (product) => {
     const filter = cartItems.filter(p => (
       product._id === p._id
@@ -62,6 +66,7 @@ function CartProvider (props) {
     setDuplicatedCartItems,
     total,
     cartIsTrue,
+    cartIsFalse,
     addItem,
     deleteItem,
     deleteQuantityItem

@@ -20,6 +20,17 @@ const ProductDescription = () => {
   const handleCartTrue = contextCart.cartIsTrue
   const addItem = contextCart.addItem
 
+  const cart = contextCart.cart
+
+  const styles = {
+    buttonPurchase: {
+      minWidth: cart ? '100%' : '60%'
+    },
+    buttonCart: {
+      display: cart ? 'none' : 'flex'
+    }
+  }
+
   return (
     <article className='structure'>
       <div className='structure__category'>
@@ -80,16 +91,27 @@ const ProductDescription = () => {
                   </>
                   )
                 : (
-                  <button
-                    className='structure__product__product-detail__fourth__button-purchase'
-                    onClick={() => {
-                      handleCartTrue()
-                      addItem(selectedProduct)
-                    }}
-                  >
-                    <i className='bi bi-bag' />
-                    <span className='structure__product__product-detail__fourth__button-purchase__text'> Purchase </span>
-                  </button>
+                  <>
+                    <button
+                      className='structure__product__product-detail__fourth__button-purchase'
+                      style={styles.buttonPurchase}
+                      onClick={() => {
+                        handleCartTrue()
+                        addItem(selectedProduct)
+                      }}
+                    >
+                      <i className='bi bi-bag' />
+                      <span className='structure__product__product-detail__fourth__button-purchase__text'> Purchase </span>
+                    </button>
+                    <button
+                      className='structure__product__product-detail__fourth__button-cart'
+                      style={styles.buttonCart}
+                      onClick={handleCartTrue}
+                    >
+                      <i className='fa-solid fa-cart-shopping' />
+                      <span className='structure__product__product-detail__fourth__button-purchase__text'> Show </span>
+                    </button>
+                  </>
                   )
             }
           </div>
