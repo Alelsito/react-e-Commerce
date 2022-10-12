@@ -45,22 +45,24 @@ function CartProvider (props) {
     let totalMoney = itemDeleted[0].price
     setCartItems([...cartItems])
 
-    const duplicatedItems = duplicatedCartItems.filter(p => (
-      product._id === p._id
-    ))
-    duplicatedItems.forEach(p => (
-      totalMoney += replaceNoNumber(p.price)
-    ))
-    const noDuplicatedItems = duplicatedCartItems.filter(p => (
-      product._id !== p._id
-    ))
+    if (product !== undefined) {
+      const duplicatedItems = duplicatedCartItems.filter(p => (
+        product._id === p._id
+      ))
+      duplicatedItems.forEach(p => (
+        totalMoney += replaceNoNumber(p.price)
+      ))
+      const noDuplicatedItems = duplicatedCartItems.filter(p => (
+        product._id !== p._id
+      ))
+      setDuplicatedCartItems(noDuplicatedItems)
+    }
 
     setTotal(total - totalMoney)
-    setDuplicatedCartItems(noDuplicatedItems)
   }
 
   const deleteQuantityItem = (id) => {
-    const specificProduct = duplicatedCartItems.find(p => p.id === id)
+    const specificProduct = duplicatedCartItems.find(p => p._id === id)
     const specificProductIndex = duplicatedCartItems.indexOf(specificProduct)
     const itemDeleted = duplicatedCartItems.splice(specificProductIndex, 1)
     setTotal(total - replaceNoNumber(itemDeleted[0].price))

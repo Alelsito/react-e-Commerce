@@ -61,7 +61,7 @@ const CartProduct = ({ index, product }) => {
                 onClick={() => {
                   if (quantity > 1) {
                     minusQuantity()
-                    contextCart.deleteQuantityItem(product.id)
+                    contextCart.deleteQuantityItem(product._id)
                   } else if (quantity === 1) {
                     minusQuantity()
                     contextCart.deleteItem(index)
