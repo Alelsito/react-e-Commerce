@@ -1,0 +1,161 @@
+// _styles.scss
+@import '@/styles/styles';
+
+// Extends
+%ghostChilds {
+    position: absolute;
+    background: $Bright;
+    top: 85%;
+    width: 26%;
+    height: 23%;
+    border: 1px solid $Dark;
+    z-index: 0;
+}
+
+%eye {
+    position: absolute;
+    background: black;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    top: 40%;
+}
+
+.not-found {
+    margin-top: 65px;
+    min-width: 250px;
+    min-height: 350px;
+
+    &__container-ghost {
+        position: relative;
+        width: 250px;
+        height: 250px;
+        margin-top: -75px;
+
+        &__text-error {
+            color: $Highlight;
+            text-align: center;
+            font-size: 7em;
+            margin: 0;
+            text-shadow: -1px 0 $Highlight, 0 1px $Highlight, 1px 0 $Highlight, 0 -1px $Highlight;
+        }
+
+        &__text-error-info {
+            margin: 0;
+            font-size: 2em;
+            text-align: center;
+            color: $Primary;
+            font-weight: 900;
+            text-shadow: none;
+        }
+
+        &__ghost-copy {
+            width: 50%;
+            height: 53%;
+            left: 25%;
+            top: 10%;
+            position: absolute;
+            border-radius: 50% 50% 0 0;
+            background: $Bright;
+            border: 1px solid $Dark;
+            border-bottom: none;
+            animation: float 2s ease-out infinite;
+            z-index: 0;
+
+            &__one {
+                @extend %ghostChilds;
+                border-radius: 0 0 100% 30%;
+                left: -1px;
+            }
+
+            &__two {
+                @extend %ghostChilds;
+                left: 23%;
+                border-radius: 0 0 50% 50%;
+            }
+
+            &__three {
+                @extend %ghostChilds;
+                left: 50%;
+                border-radius: 0 0 50% 50%;
+            }
+
+            &__four {
+                @extend %ghostChilds;
+                left: 73.5%;
+                border-radius: 0 0 30% 100%;
+            }
+        }
+
+        &__ghost {
+            width: 50%;
+            height: 53%;
+            left: 25%;
+            top: 10%;
+            position: absolute;
+            border-radius: 50% 50% 0 0;
+            background: $Bright;
+            border: 1px solid $Type-Low-Emphasis;
+            border-bottom: none;
+            animation: float 2s ease-out infinite;
+
+            &__face {
+                position: absolute;
+                width: 100%;
+                height: 60%;
+                top: 20%;
+            }
+
+            &__eye {
+                @extend %eye;
+                left: 25%;
+            }
+
+            &__eye-right {
+                @extend %eye;
+                right: 25%;
+            }
+
+            &__mouth {
+                position: absolute;
+                top: 50%;
+                left: 45%;
+                width: 10px;
+                height: 10px;
+                border: 3px solid;
+                border-radius: 50%;
+                border-color: $Dark;
+                transform: rotate(45deg);
+            }
+        }
+
+        &__shadow {
+            position: absolute;
+            width: 30%;
+            height: 7%;
+            background: $Primary-Tint;
+            left: 35%;
+            top: 80%;
+            border-radius: 50%;
+            animation: scale 2s infinite;
+        }
+    }
+}
+  
+  @keyframes scale {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes float {
+    50% {
+      transform: translateY(15px);
+    }
+  }
