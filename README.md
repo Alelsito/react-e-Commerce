@@ -126,8 +126,6 @@ Build an e-commerce (electronic commerce site) with React from consuming an API 
     - [useContext](https://reactjs.org/docs/hooks-reference.html#usecontext)
     - [Custom Hooks](https://reactjs.org/docs/hooks-custom.html)
 - [React-Router-Dom](https://reactrouter.com/en/main)
-    - Routes
-    - Route
     - [Navigate](https://reactrouter.com/en/main/components/navigate)
     - [Link](https://reactrouter.com/en/main/components/link)
     - [useNavigate](https://reactrouter.com/en/main/hooks/use-navigate)
@@ -136,7 +134,7 @@ Build an e-commerce (electronic commerce site) with React from consuming an API 
 - [JWT Authentication](https://jwt.io/introduction)
 - [NodeJS](https://nodejs.org/en/)
 - [npm](https://www.npmjs.com/)
-  -[jwt-decode](https://www.npmjs.com/package/jwt-decode)
+    - [jwt-decode](https://www.npmjs.com/package/jwt-decode)
 - [StandardJs](https://standardjs.com/) - as linter
 - Handling forms and events
 
