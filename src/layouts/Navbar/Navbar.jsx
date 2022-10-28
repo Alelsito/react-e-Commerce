@@ -77,7 +77,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className='nav__first-side__categories'>
-          <span className='nav__first-side__categories__text-category'> Category </span>
+          {/* <span className='nav__first-side__categories__text-category'> Category </span> */}
         </div>
       </div>
       <div className='nav-second-side'>
