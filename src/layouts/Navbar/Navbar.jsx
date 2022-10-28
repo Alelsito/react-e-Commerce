@@ -39,6 +39,10 @@ const Navbar = () => {
       : contextProducts.setSearcherData(null)
   }
 
+  const reloadPage = () => {
+    contextProducts.setSearcherData(null)
+  }
+
   const { input, handleInputChange, handleSubmit } = useForm(searchedData, {
     search: ''
   })
@@ -47,7 +51,12 @@ const Navbar = () => {
     <nav className='nav'>
       <div className='nav__first-side'>
         <div className='nav__first-side__logo'>
-          <Link to='/' onClick={scrollUP}>
+          <Link
+            to='/' onClick={() => {
+              scrollUP()
+              reloadPage()
+            }}
+          >
             {
             contextAuth.isAuth === false
               ? (location.pathname !== '/login'
@@ -69,9 +78,6 @@ const Navbar = () => {
         </div>
         <div className='nav__first-side__categories'>
           <span className='nav__first-side__categories__text-category'> Category </span>
-          <span className='nav__first-side__categories__text-category'> Opcion </span>
-          <span className='nav__first-side__categories__text-category'> Opcion </span>
-          <span className='nav__first-side__categories__text-category'> Opcion </span>
         </div>
       </div>
       <div className='nav-second-side'>
